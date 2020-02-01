@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">포커스미</string>
+    <string name="title_home">홈</string>
+    <string name="title_profile">프로필</string>
+    <string name="title_submit">제출하기</string>
+</resources>
