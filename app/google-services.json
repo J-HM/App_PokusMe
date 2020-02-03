@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "140978218671",
+    "firebase_url": "https://pokus-6f2ae.firebaseio.com",
+    "project_id": "pokus-6f2ae",
+    "storage_bucket": "pokus-6f2ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140978218671:android:e33fe0fd3bb51b7f57d65a",
+        "android_client_info": {
+          "package_name": "com.jhm.android.pokusme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140978218671-cpigocd5mhkuvhdkvsmvic3nn4ik8sik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6N7Ou33WSHDAVFqqciMi5lSoyJa1j_g4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140978218671-cpigocd5mhkuvhdkvsmvic3nn4ik8sik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
