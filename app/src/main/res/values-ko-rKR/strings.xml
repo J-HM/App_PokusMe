@@ -4,4 +4,10 @@
     <string name="title_home">홈</string>
     <string name="title_profile">프로필</string>
     <string name="title_submit">제출하기</string>
+    <string name="login_signIn">로그인</string>
+    <string name="login_signUp">회원가입</string>
+    <string name="login_facebook">페이스북</string>
+    <string name="login_google">구글</string>
+    <string name="login_kakao">카카오톡</string>
+    <string name="login_naver">네이버</string>
 </resources>
