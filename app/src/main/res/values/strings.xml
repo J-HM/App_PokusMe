@@ -13,4 +13,7 @@
     <string name="login_naver">Naver</string>
     <string name="login_email" translatable="false">E-mail</string>
     <string name="login_password" translatable="false">Password</string>
+    <string name="profile_signOut">Sign Out</string>
+    <string name="profile_edit">Edit</string>
+    <string name="profile_name">Name</string>
 </resources>

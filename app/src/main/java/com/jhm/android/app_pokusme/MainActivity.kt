@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
     }
     
-    fun startLoginActivity() {
+    private fun startLoginActivity() {
         startActivity(Intent(this, LoginActivity::class.java))
         finish()
     }
