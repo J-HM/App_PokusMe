@@ -17,9 +17,9 @@ import com.jhm.android.app_pokusme.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
-
+    
     private lateinit var profileViewModel: ProfileViewModel
-
+    
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
         
@@ -29,7 +29,7 @@ class ProfileFragment : Fragment() {
         })
         
         getUserProfile { updateUI(it) }
-    
+        
         val buttonSignOut = view.findViewById(R.id.button_profile_signout) as ImageButton
         val buttonEdit = view.findViewById(R.id.button_profile_edit) as ImageButton
         
@@ -44,7 +44,10 @@ class ProfileFragment : Fragment() {
 //        user.email
 //        user.isEmailVerified
 //        user.uid
-        profileViewModel.name.value = user.displayName
+        if (user.displayName.isNullOrBlank())
+            profileViewModel.name.value = "이름없음"
+        else
+            profileViewModel.name.value = user.displayName
     }
     
     private fun getUserProfile(_updateUI: (FirebaseUser) -> Unit) {
