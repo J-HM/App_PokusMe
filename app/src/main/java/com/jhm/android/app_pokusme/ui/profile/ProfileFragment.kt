@@ -11,24 +11,28 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import com.jhm.android.app_pokusme.MainActivity
 import com.jhm.android.app_pokusme.R
+import com.jhm.android.app_pokusme.data.UserData
 import com.jhm.android.app_pokusme.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
-    
     private lateinit var profileViewModel: ProfileViewModel
+    private lateinit var currentUser: UserData
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
         
         profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
-        profileViewModel.name.observe(viewLifecycleOwner, Observer {
+        profileViewModel.displayName.observe(viewLifecycleOwner, Observer {
+            Log.d("jhmlog", "name changed. ")
             text_profile_name.text = it
         })
         
-        getUserProfile { updateUI(it) }
+        val mainActivity: MainActivity? = activity as MainActivity?
+        currentUser = mainActivity!!.currentUser
+        userDataUpdate()
         
         val buttonSignOut = view.findViewById(R.id.button_profile_signout) as ImageButton
         val buttonEdit = view.findViewById(R.id.button_profile_edit) as ImageButton
@@ -39,20 +43,13 @@ class ProfileFragment : Fragment() {
         return view
     }
     
-    private fun updateUI(user: FirebaseUser) {
-//        user.displayName
-//        user.email
-//        user.isEmailVerified
-//        user.uid
-        if (user.displayName.isNullOrBlank())
-            profileViewModel.name.value = "이름없음"
-        else
-            profileViewModel.name.value = user.displayName
-    }
-    
-    private fun getUserProfile(_updateUI: (FirebaseUser) -> Unit) {
-        val user = FirebaseAuth.getInstance().currentUser
-        user?.let { _updateUI(it) }
+    private fun userDataUpdate() {
+        profileViewModel.displayName.value = this.currentUser.displayName
+        profileViewModel.email.value = this.currentUser.email
+        profileViewModel.isEmailVerified.value = this.currentUser.isEmailVerified
+//        Log.d("jhmlog", "name ${this.currentUser.displayName}")
+//        Log.d("jhmlog", "email ${currentUser.email}")
+//        Log.d("jhmlog", "email verified ${currentUser.isEmailVerified}")
     }
     
     private fun signOut() {

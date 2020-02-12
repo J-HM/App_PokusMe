@@ -6,25 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.login.LoginActivity">
 
-    <EditText
-        android:id="@+id/edit_login_email"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="32dp"
-        android:autofillHints="emailAddress"
-        android:ems="10"
-        android:hint="@string/login_email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/edit_login_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="o" />
-
     <Button
         android:id="@+id/button_login_google"
         android:layout_width="0dp"
@@ -35,25 +16,6 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline_left" />
-
-    <EditText
-        android:id="@+id/edit_login_password"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="32dp"
-        android:autofillHints="password"
-        android:ems="10"
-        android:hint="@string/login_password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/button_login_kakao"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="o" />
 
     <Button
         android:id="@+id/button_login_naver"
@@ -115,14 +77,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.2" />
+        app:layout_constraintGuide_percent="0.15" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.85" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"

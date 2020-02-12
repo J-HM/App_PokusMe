@@ -1,17 +1,10 @@
 package com.jhm.android.app_pokusme.ui.profile
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ProfileViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is profile Fragment"
-    }
-    
-    val text: LiveData<String> = _text
-    
-    
-    val name = MutableLiveData<String>()
+    val displayName = MutableLiveData<String>()
+    val email = MutableLiveData<String>()
+    val isEmailVerified = MutableLiveData<Boolean>()
 }

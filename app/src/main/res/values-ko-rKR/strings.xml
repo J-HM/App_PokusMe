@@ -13,4 +13,14 @@
     <string name="profile_signOut">로그아웃</string>
     <string name="profile_edit">수정하기</string>
     <string name="profile_name">이름</string>
+    <string name="signIn_email">이메일</string>
+    <string name="signIn_password">비밀번호</string>
+    <string name="signIn_signIn">로그인</string>
+    <string name="signUp_email">이메일</string>
+    <string name="signUp_name">이름</string>
+    <string name="signUp_password">비밀번호</string>
+    <string name="signUp_passwordConfirm">비밀번호 확인</string>
+    <string name="signUp_signUp">회원가입</string>
+    <string name="title_signIn">로그인</string>
+    <string name="title_signUp">회원가입</string>
 </resources>

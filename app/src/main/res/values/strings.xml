@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">PokusMe</string>
+    <string name="app_name">Pokus Me</string>
 
     <string name="title_home">Home</string>
     <string name="title_submit">Submit</string>
     <string name="title_profile">Profile</string>
+    <string name="title_signIn">Sign In</string>
+    <string name="title_signUp">Sign Up</string>
 
     <string name="login_signIn">Sign In</string>
     <string name="login_signUp">Sign Up</string>
@@ -11,9 +13,23 @@
     <string name="login_facebook">Facebook</string>
     <string name="login_kakao">KaKao</string>
     <string name="login_naver">Naver</string>
-    <string name="login_email" translatable="false">E-mail</string>
-    <string name="login_password" translatable="false">Password</string>
+
+    <string name="signIn_email">E-mail</string>
+    <string name="signIn_password">Password</string>
+    <string name="signIn_signIn">Sign In</string>
+
+    <string name="signUp_name">Name</string>
+    <string name="signUp_email">E-mail</string>
+    <string name="signUp_password">Password</string>
+    <string name="signUp_passwordConfirm">Password Confirm</string>
+    <string name="signUp_signUp">Sign Up</string>
+
     <string name="profile_signOut">Sign Out</string>
     <string name="profile_edit">Edit</string>
     <string name="profile_name">Name</string>
+
+
+    <string name="facebook_app_id" translatable="false">173371833894134</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb173371833894134</string>
+
 </resources>

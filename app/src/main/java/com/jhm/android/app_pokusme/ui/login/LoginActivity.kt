@@ -1,26 +1,34 @@
 package com.jhm.android.app_pokusme.ui.login
 
+
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.jhm.android.app_pokusme.MainActivity
 import com.jhm.android.app_pokusme.R
 import kotlinx.android.synthetic.main.activity_login.*
 
+
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var callbackManager: CallbackManager
+    
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +40,20 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
+        callbackManager = CallbackManager.Factory.create()
         
-        button_login_signIn.setOnClickListener(this)
         button_login_facebook.setOnClickListener(this)
         button_login_google.setOnClickListener(this)
         button_login_kakao.setOnClickListener(this)
         button_login_naver.setOnClickListener(this)
+        
+        button_login_signIn.setOnClickListener {
+            startActivity(Intent(this, SignInActivity::class.java))
+        }
+        
+        button_login_signUp.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
+        }
     }
     
     override fun onStart() {
@@ -47,7 +63,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.button_login_signIn -> signInWithNormal(edit_login_email.text.toString(), edit_login_password.text.toString())
             R.id.button_login_facebook -> signInWithFacebook()
             R.id.button_login_google -> signInWithGoogle()
             R.id.button_login_kakao -> signInWithKakao()
@@ -57,20 +72,20 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        callbackManager.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = task.getResult(ApiException::class.java)
-                firebaseAuthWithGoogle(account!!)
+                val credential = GoogleAuthProvider.getCredential(account?.idToken, null)
+                firebaseAuthWithCredential(credential)
             } catch (e: ApiException) {
-                Log.w("jhmlog", "Google sign in failed ${e.localizedMessage}", e)
+                Log.w("jhmlog", "Google sign in failed ${e.message}", e)
             }
         }
     }
     
-    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
-        Log.d("jhmlog", "firebaseAuthWithGoogle:" + acct.id!!)
-        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
+    private fun firebaseAuthWithCredential(credential: AuthCredential) {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -82,29 +97,30 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
     }
     
-    private fun signInWithNormal(email: String, password: String) {
-        Log.d("jhmlog", "signIn:$email")
-        if (!validateForm())
-            return
-        
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    Log.d("jhmlog", "signInWithEmail:success")
-                    startMainActivity()
-                } else {
-                    Log.w("jhmlog", "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
-                }
-            }
-    }
-    
     private fun signInWithGoogle() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
     
     private fun signInWithFacebook() {
+        val loginManager = LoginManager.getInstance()
+        loginManager.logInWithReadPermissions(this, listOf("public_profile", "email"))
+        loginManager.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+            override fun onSuccess(loginResult: LoginResult) {
+                Log.d("jhmlog", "facebook:onSuccess:$loginResult")
+                val credential = FacebookAuthProvider.getCredential(loginResult.accessToken.token)
+                firebaseAuthWithCredential(credential)
+            }
+            
+            override fun onCancel() {
+                Log.d("jhmlog", "facebook:onCancel")
+            }
+            
+            override fun onError(error: FacebookException) {
+                Log.d("jhmlog", "facebook:onError", error)
+            }
+            
+        })
     }
     
     private fun signInWithKakao() {
@@ -116,28 +132,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private fun startMainActivity() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
-    }
-    
-    private fun validateForm(): Boolean {
-        var valid = true
-        
-        val email = edit_login_email.text.toString()
-        if (TextUtils.isEmpty(email)) {
-            edit_login_email.error = "Required."
-            valid = false
-        } else {
-            edit_login_email.error = null
-        }
-        
-        val password = edit_login_password.text.toString()
-        if (TextUtils.isEmpty(password)) {
-            edit_login_password.error = "Required."
-            valid = false
-        } else {
-            edit_login_password.error = null
-        }
-        
-        return valid
     }
     
     
