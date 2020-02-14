@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.jhm.android.app_pokusme.MainActivity
 import com.jhm.android.app_pokusme.R
 import com.jhm.android.app_pokusme.data.UserData
-import com.jhm.android.app_pokusme.ui.login.LoginActivity
+import com.jhm.android.app_pokusme.ui.auth.LoginActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
@@ -47,9 +47,6 @@ class ProfileFragment : Fragment() {
         profileViewModel.displayName.value = this.currentUser.displayName
         profileViewModel.email.value = this.currentUser.email
         profileViewModel.isEmailVerified.value = this.currentUser.isEmailVerified
-//        Log.d("jhmlog", "name ${this.currentUser.displayName}")
-//        Log.d("jhmlog", "email ${currentUser.email}")
-//        Log.d("jhmlog", "email verified ${currentUser.isEmailVerified}")
     }
     
     private fun signOut() {

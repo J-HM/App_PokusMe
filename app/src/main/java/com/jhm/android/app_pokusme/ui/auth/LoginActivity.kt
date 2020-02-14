@@ -1,4 +1,4 @@
-package com.jhm.android.app_pokusme.ui.login
+package com.jhm.android.app_pokusme.ui.auth
 
 
 import android.content.Intent
@@ -90,9 +90,21 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     startMainActivity()
-                    Log.d("jhmlog", "signInWithCredential:success")
+                    Log.d("jhmlog", "Sign In With Credential: SUCCESS")
                 } else {
-                    Log.w("jhmlog", "signInWithCredential:failure", task.exception)
+                    Log.w("jhmlog", "Sign In With Credential: FAILURE", task.exception)
+                }
+            }
+    }
+    
+    private fun firebaseAuthWithCustomToken(customToken: String) {
+        auth.signInWithCustomToken(customToken)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    startMainActivity()
+                    Log.d("jhmlog", "Sign In With Custom Token: SUCCESS")
+                } else {
+                    Log.w("jhmlog", "Sign In With Credential: FAILURE", task.exception)
                 }
             }
     }
@@ -124,9 +136,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
     
     private fun signInWithKakao() {
+        val token = ""
+        firebaseAuthWithCustomToken(token)
     }
     
     private fun signInWithNaver() {
+        val token = ""
+        firebaseAuthWithCustomToken(token)
     }
     
     private fun startMainActivity() {

@@ -11,7 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.jhm.android.app_pokusme.data.UserData
-import com.jhm.android.app_pokusme.ui.login.LoginActivity
+import com.jhm.android.app_pokusme.ui.auth.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

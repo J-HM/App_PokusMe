@@ -32,4 +32,6 @@
     <string name="facebook_app_id" translatable="false">173371833894134</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb173371833894134</string>
 
+    <string name="kakao_app_key" translatable="false">a3f6ae8c8e837c0226e9894fdc0ae697</string>
+
 </resources>

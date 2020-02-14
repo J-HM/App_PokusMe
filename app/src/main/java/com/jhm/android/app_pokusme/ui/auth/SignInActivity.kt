@@ -1,4 +1,4 @@
-package com.jhm.android.app_pokusme.ui.login
+package com.jhm.android.app_pokusme.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
