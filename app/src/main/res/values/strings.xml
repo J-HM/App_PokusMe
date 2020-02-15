@@ -18,7 +18,7 @@
     <string name="signIn_password">Password</string>
     <string name="signIn_signIn">Sign In</string>
 
-    <string name="signUp_name">Name</string>
+    <string name="signUp_displayName">Name</string>
     <string name="signUp_email">E-mail</string>
     <string name="signUp_password">Password</string>
     <string name="signUp_passwordConfirm">Password Confirm</string>
@@ -33,5 +33,9 @@
     <string name="fb_login_protocol_scheme" translatable="false">fb173371833894134</string>
 
     <string name="kakao_app_key" translatable="false">a3f6ae8c8e837c0226e9894fdc0ae697</string>
+
+    <string name="userMessage_failure">Failure</string>
+    <string name="userMessage_success">Success</string>
+    <string name="userMessage_incorrectEmailOrPassword">Incorrect email or password.</string>
 
 </resources>

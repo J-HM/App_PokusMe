@@ -104,7 +104,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     startMainActivity()
                     Log.d("jhmlog", "Sign In With Custom Token: SUCCESS")
                 } else {
-                    Log.w("jhmlog", "Sign In With Credential: FAILURE", task.exception)
+                    Log.w("jhmlog", "Sign In With Custom Token: FAILURE", task.exception)
                 }
             }
     }

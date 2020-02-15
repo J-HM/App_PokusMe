@@ -26,7 +26,6 @@ class ProfileFragment : Fragment() {
         
         profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         profileViewModel.displayName.observe(viewLifecycleOwner, Observer {
-            Log.d("jhmlog", "name changed. ")
             text_profile_name.text = it
         })
         

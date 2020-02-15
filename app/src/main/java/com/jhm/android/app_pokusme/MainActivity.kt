@@ -2,7 +2,6 @@ package com.jhm.android.app_pokusme
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,6 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.jhm.android.app_pokusme.data.UserData
+import com.jhm.android.app_pokusme.ui.auth.EmailVerifiedActivity
 import com.jhm.android.app_pokusme.ui.auth.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -35,13 +35,9 @@ class MainActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
-        if (currentUser == null) {
-            Log.d("jhmlog", "로그인 안됨")
-            startLoginActivity()
-        } else {
-            Log.d("jhmlog", "로그인 됨")
-            updateUserData(currentUser)
-        }
+        if (currentUser == null) startLoginActivity()
+        else if (currentUser.isEmailVerified) startEmailVerifiedActivity()
+        else updateUserData(currentUser)
     }
     
     private fun updateUserData(_currentUser: FirebaseUser?) {
@@ -53,6 +49,11 @@ class MainActivity : AppCompatActivity() {
     
     private fun startLoginActivity() {
         startActivity(Intent(this, LoginActivity::class.java))
+        finish()
+    }
+    
+    private fun startEmailVerifiedActivity() {
+        startActivity(Intent(this, EmailVerifiedActivity::class.java))
         finish()
     }
 }
