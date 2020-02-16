@@ -24,7 +24,7 @@ import com.jhm.android.app_pokusme.R
 import kotlinx.android.synthetic.main.activity_login.*
 
 
-class LoginActivity : AppCompatActivity(), View.OnClickListener {
+class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var callbackManager: CallbackManager
@@ -42,10 +42,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         callbackManager = CallbackManager.Factory.create()
         
-        button_login_facebook.setOnClickListener(this)
-        button_login_google.setOnClickListener(this)
-        button_login_kakao.setOnClickListener(this)
-        button_login_naver.setOnClickListener(this)
+        button_login_facebook.setOnClickListener { signInWithFacebook() }
+        button_login_google.setOnClickListener { signInWithGoogle() }
+        button_login_kakao.setOnClickListener { signInWithKakao() }
+        button_login_naver.setOnClickListener { signInWithNaver() }
         
         button_login_signIn.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))
@@ -59,15 +59,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onStart() {
         super.onStart()
         auth.currentUser?.let { startMainActivity() }
-    }
-    
-    override fun onClick(v: View) {
-        when (v.id) {
-            R.id.button_login_facebook -> signInWithFacebook()
-            R.id.button_login_google -> signInWithGoogle()
-            R.id.button_login_kakao -> signInWithKakao()
-            R.id.button_login_naver -> signInWithNaver()
-        }
     }
     
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -84,6 +75,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
+    
     
     private fun firebaseAuthWithCredential(credential: AuthCredential) {
         auth.signInWithCredential(credential)
@@ -108,6 +100,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
     }
+    
     
     private fun signInWithGoogle() {
         val signInIntent = googleSignInClient.signInIntent
@@ -144,6 +137,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         val token = ""
         firebaseAuthWithCustomToken(token)
     }
+    
     
     private fun startMainActivity() {
         startActivity(Intent(this, MainActivity::class.java))

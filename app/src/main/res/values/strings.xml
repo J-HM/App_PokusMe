@@ -28,7 +28,6 @@
     <string name="profile_edit">Edit</string>
     <string name="profile_name">Name</string>
 
-
     <string name="facebook_app_id" translatable="false">173371833894134</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb173371833894134</string>
 
@@ -38,4 +37,11 @@
     <string name="userMessage_success">Success</string>
     <string name="userMessage_incorrectEmailOrPassword">Incorrect email or password.</string>
 
+    <string name="emailVerified_title">Verify your email address</string>
+    <string name="emailVerified_complete">Verify your email address</string>
+    <string name="emailVerified_message">We sent an email to the above address.\nPlease check your mail and click the Refresh button to complete your register.</string>
+    <string name="emailVerified_signOut">Sign Out</string>
+    <string name="emailVerified_refresh">Refresh</string>
+    <string name="emailVerified_start">Start</string>
+    <string name="emailVerified_checkImage_description">Check</string>
 </resources>

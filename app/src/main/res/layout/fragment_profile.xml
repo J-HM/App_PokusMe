@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/ic_edit" />
 
     <ImageButton
-        android:id="@+id/button_profile_signout"
+        android:id="@+id/button_profile_signOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

@@ -26,4 +26,11 @@
     <string name="userMessage_failure">실패</string>
     <string name="userMessage_success">성공</string>
     <string name="userMessage_incorrectEmailOrPassword">이메일 또는 비밀번호가 일치하지 않습니다.</string>
+    <string name="emailVerified_message">위 주소로 메일을 전송했습니다.\n메일 확인 후 새로고침 버튼을 눌러 가입을 완료해주세요.</string>
+    <string name="emailVerified_signOut">로그아웃</string>
+    <string name="emailVerified_title">이메일 인증을 진행해주세요.</string>
+    <string name="emailVerified_refresh">새로고침</string>
+    <string name="emailVerified_checkImage_description">체크</string>
+    <string name="emailVerified_complete">인증 완료</string>
+    <string name="emailVerified_start">시작하기</string>
 </resources>

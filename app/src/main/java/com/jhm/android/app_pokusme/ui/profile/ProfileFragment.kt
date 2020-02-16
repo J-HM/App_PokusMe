@@ -33,7 +33,7 @@ class ProfileFragment : Fragment() {
         currentUser = mainActivity!!.currentUser
         userDataUpdate()
         
-        val buttonSignOut = view.findViewById(R.id.button_profile_signout) as ImageButton
+        val buttonSignOut = view.findViewById(R.id.button_profile_signOut) as ImageButton
         val buttonEdit = view.findViewById(R.id.button_profile_edit) as ImageButton
         
         buttonSignOut.setOnClickListener { signOut() }

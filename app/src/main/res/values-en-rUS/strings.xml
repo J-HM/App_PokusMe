@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="emailVerified_signOut">Sign Out</string>
+    <string name="emailVerified_title">Verify your email address</string>
+    <string name="login_facebook">Facebook</string>
+    <string name="login_google">Google</string>
+    <string name="login_kakao">KaKao</string>
+    <string name="login_naver">Naver</string>
+    <string name="login_signIn">Sign In</string>
+    <string name="login_signUp">Sign Up</string>
+    <string name="profile_edit">Edit</string>
+    <string name="profile_name">Name</string>
+    <string name="profile_signOut">Sign Out</string>
+    <string name="signIn_email">E-mail</string>
+    <string name="signIn_password">Password</string>
+    <string name="signIn_signIn">Sign In</string>
+    <string name="signUp_displayName">Name</string>
+    <string name="signUp_email">E-mail</string>
+    <string name="signUp_password">Password</string>
+    <string name="signUp_passwordConfirm">Password Confirm</string>
+    <string name="signUp_signUp">Sign Up</string>
+    <string name="title_home">Home</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_signIn">Sign In</string>
+    <string name="title_signUp">Sign Up</string>
+    <string name="title_submit">Submit</string>
+    <string name="userMessage_failure">Failure</string>
+    <string name="userMessage_incorrectEmailOrPassword">Incorrect email or password.</string>
+    <string name="userMessage_success">Success</string>
+    <string name="emailVerified_message">We sent an email to the above address.\nPlease check your mail and click the Refresh button to complete your register.</string>
+    <string name="app_name">Pokus Me</string>
+    <string name="emailVerified_refresh">Refresh</string>
+    <string name="emailVerified_checkImage_description">Check</string>
+    <string name="emailVerified_complete">Verification completed</string>
+    <string name="emailVerified_start">Start</string>
+</resources>

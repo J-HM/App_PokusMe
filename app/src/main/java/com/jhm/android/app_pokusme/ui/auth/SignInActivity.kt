@@ -5,9 +5,7 @@ import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
-import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.jhm.android.app_pokusme.R
 import com.jhm.android.app_pokusme.global.DialogAlert
 import kotlinx.android.synthetic.main.activity_sign_in.*
@@ -50,6 +48,10 @@ class SignInActivity : AppCompatActivity() {
         }
     }
     
+    override fun onStart() {
+        super.onStart()
+        auth.currentUser?.let { finish() }
+    }
     
     private fun validateEmail(email: String): Boolean {
         var isValid = true
@@ -95,24 +97,8 @@ class SignInActivity : AppCompatActivity() {
             }
             .addOnFailureListener {
                 Log.w("jhmlog", "Sing In User With Email: FAILURE", it)
-                when (it) {
-                    is FirebaseAuthInvalidUserException -> {
-                        DialogAlert.showConfirmDialogAlert(
-                            this, getString(R.string.userMessage_failure), "올바르지 않은 이메일 또는 비밀번호"
-                        )
-                    }
-                    is FirebaseNetworkException -> {
-                        DialogAlert.showConfirmDialogAlert(
-                            this, getString(R.string.userMessage_failure), "네트워크 연결 실패"
-                        )
-                    }
-                    else -> {
-                        DialogAlert.showConfirmDialogAlert(
-                            this, getString(R.string.userMessage_failure), "정의 되지 않은 오류"
-                        )
-                    }
-                }
+                DialogAlert.showForcePositiveDialogAlert(this, getString(R.string.userMessage_failure), it.message.toString())
             }
     }
-
+    
 }

@@ -32,7 +32,7 @@ class SignUpActivity : AppCompatActivity() {
         button_signUp_signUp.isEnabled = false
         button_signUp_signUp.setOnClickListener {
             signUp {
-                DialogAlert.showConfirmDialogAlert(this, "성공", "가입이 완료 됐습니다.") {
+                DialogAlert.showForcePositiveDialogAlert(this, "성공", "가입이 완료 됐습니다.") {
                     finish()
                 }
             }
@@ -56,6 +56,11 @@ class SignUpActivity : AppCompatActivity() {
             isPasswordConfirmValid = validatePasswordConfirm(it.toString())
             button_signUp_signUp.isEnabled = validateForm()
         }
+    }
+    
+    override fun onStart() {
+        super.onStart()
+        auth.currentUser?.let { finish() }
     }
     
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -176,7 +181,7 @@ class SignUpActivity : AppCompatActivity() {
             }
             .addOnFailureListener {
                 Log.w("jhmlog", "Create User With Email: FAILURE", it)
-                DialogAlert.showConfirmDialogAlert(this, getString(R.string.userMessage_failure), "${it.message}")
+                DialogAlert.showForcePositiveDialogAlert(this, getString(R.string.userMessage_failure), "${it.message}")
             }
     }
     
