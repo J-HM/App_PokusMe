@@ -6,21 +6,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jhm.android.app_pokusme.R
 import com.jhm.android.app_pokusme.data.VideoData
-import kotlinx.android.synthetic.main.row_latest_video.view.*
+import kotlinx.android.synthetic.main.row_best_video.view.*
 
-
-class LatestVideoAdapter(private val latestVideos: ArrayList<VideoData>) : RecyclerView.Adapter<LatestVideoAdapter.ViewHolder>() {
+class BestVideoAdapter(private val bestVideos: ArrayList<VideoData>) : RecyclerView.Adapter<BestVideoAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.row_latest_video, parent, false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.row_best_video, parent, false))
     }
     
-    override fun getItemCount(): Int = latestVideos.size
+    override fun getItemCount(): Int = bestVideos.size
     
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val title = latestVideos[position].title
-        holder.view.text_latestVideo_title.text = title
+        val title = bestVideos[position].title
+        holder.view.text_bestVideo_title.text = title
     }
-    
     
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 }

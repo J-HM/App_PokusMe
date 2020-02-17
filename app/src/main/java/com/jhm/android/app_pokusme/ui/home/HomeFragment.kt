@@ -10,12 +10,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jhm.android.app_pokusme.R
+import com.jhm.android.app_pokusme.adapter.BestVideoAdapter
 import com.jhm.android.app_pokusme.adapter.LatestVideoAdapter
-import com.jhm.android.app_pokusme.data.LatestVideoData
+import com.jhm.android.app_pokusme.data.VideoData
 
 class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
-    private val latestVideos = ArrayList<LatestVideoData>()
+    private val latestVideos = ArrayList<VideoData>()
+    private val bestVideos = ArrayList<VideoData>()
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
@@ -24,34 +26,34 @@ class HomeFragment : Fragment() {
             // text_home.text = it
         })
         
-        latestVideos.add(LatestVideoData("test1"))
-        latestVideos.add(LatestVideoData("test2"))
-        latestVideos.add(LatestVideoData("test3"))
-        latestVideos.add(LatestVideoData("test4"))
-        latestVideos.add(LatestVideoData("test5"))
-        latestVideos.add(LatestVideoData("test6"))
-        latestVideos.add(LatestVideoData("test7"))
-        latestVideos.add(LatestVideoData("test8"))
-        latestVideos.add(LatestVideoData("test9"))
-        latestVideos.add(LatestVideoData("test10"))
-        latestVideos.add(LatestVideoData("test11"))
-        latestVideos.add(LatestVideoData("test12"))
-        latestVideos.add(LatestVideoData("test13"))
-        latestVideos.add(LatestVideoData("test14"))
-        latestVideos.add(LatestVideoData("test15"))
+        latestVideos.add(VideoData("test1"))
+        latestVideos.add(VideoData("test2"))
+        latestVideos.add(VideoData("test3"))
+        latestVideos.add(VideoData("test4"))
+        latestVideos.add(VideoData("test5"))
+        latestVideos.add(VideoData("test6"))
+        latestVideos.add(VideoData("test7"))
+        latestVideos.add(VideoData("test8"))
+        latestVideos.add(VideoData("test9"))
+    
+        bestVideos.add(VideoData("test1"))
+        bestVideos.add(VideoData("test2"))
+        bestVideos.add(VideoData("test3"))
+        bestVideos.add(VideoData("test4"))
+        bestVideos.add(VideoData("test5"))
         
         val recyclerLatestVideo = view.findViewById(R.id.recycler_home_latestVideo) as RecyclerView
+        val recyclerBestVideo = view.findViewById(R.id.recycler_home_bestVideo) as RecyclerView
+
         recyclerLatestVideo.apply {
             this.layoutManager = LinearLayoutManager(activity).also {
                 it.orientation = LinearLayoutManager.HORIZONTAL
             }
             this.adapter = LatestVideoAdapter(latestVideos)
         }
-    
-        val recyclerTest2 = view.findViewById(R.id.recycler_home_test2) as RecyclerView
-        recyclerTest2.apply {
+        recyclerBestVideo.apply {
             this.layoutManager = LinearLayoutManager(activity)
-            this.adapter = LatestVideoAdapter(latestVideos)
+            this.adapter = BestVideoAdapter(bestVideos)
         }
         
         return view
