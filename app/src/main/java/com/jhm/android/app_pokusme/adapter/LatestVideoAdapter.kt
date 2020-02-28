@@ -18,7 +18,10 @@ class LatestVideoAdapter(private val latestVideos: ArrayList<VideoData>) : Recyc
     
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val title = latestVideos[position].title
+        val id = latestVideos[position].id
+        
         holder.view.text_latestVideo_title.text = title
+        // getLifecycle().addObserver(holder.view.youtube_player_view)
     }
     
     

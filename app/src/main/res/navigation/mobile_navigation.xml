@@ -8,18 +8,10 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.jhm.android.app_pokusme.ui.home.HomeFragment"
-        android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/navigation_submit"
-        android:name="com.jhm.android.app_pokusme.ui.submit.SubmitFragment"
-        android:label="@string/title_submit"
-        tools:layout="@layout/fragment_submit" />
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.jhm.android.app_pokusme.ui.profile.ProfileFragment"
-        android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

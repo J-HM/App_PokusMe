@@ -14,6 +14,7 @@ import com.jhm.android.app_pokusme.adapter.BestVideoAdapter
 import com.jhm.android.app_pokusme.adapter.LatestVideoAdapter
 import com.jhm.android.app_pokusme.data.VideoData
 
+
 class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
     private val latestVideos = ArrayList<VideoData>()
@@ -26,25 +27,21 @@ class HomeFragment : Fragment() {
             // text_home.text = it
         })
         
-        latestVideos.add(VideoData("test1"))
-        latestVideos.add(VideoData("test2"))
-        latestVideos.add(VideoData("test3"))
-        latestVideos.add(VideoData("test4"))
-        latestVideos.add(VideoData("test5"))
-        latestVideos.add(VideoData("test6"))
-        latestVideos.add(VideoData("test7"))
-        latestVideos.add(VideoData("test8"))
-        latestVideos.add(VideoData("test9"))
-    
-        bestVideos.add(VideoData("test1"))
-        bestVideos.add(VideoData("test2"))
-        bestVideos.add(VideoData("test3"))
-        bestVideos.add(VideoData("test4"))
-        bestVideos.add(VideoData("test5"))
+        latestVideos.add(VideoData("test1", "UMW9NmlX1ws"))
+        latestVideos.add(VideoData("test2", "UMW9NmlX1ws"))
+        latestVideos.add(VideoData("test3", "UMW9NmlX1ws"))
+        latestVideos.add(VideoData("test4", "UMW9NmlX1ws"))
+        latestVideos.add(VideoData("test5", "UMW9NmlX1ws"))
+        
+        bestVideos.add(VideoData("test1", "UMW9NmlX1ws"))
+        bestVideos.add(VideoData("test2", "UMW9NmlX1ws"))
+        bestVideos.add(VideoData("test3", "UMW9NmlX1ws"))
+        bestVideos.add(VideoData("test4", "UMW9NmlX1ws"))
+        bestVideos.add(VideoData("test5", "UMW9NmlX1ws"))
         
         val recyclerLatestVideo = view.findViewById(R.id.recycler_home_latestVideo) as RecyclerView
         val recyclerBestVideo = view.findViewById(R.id.recycler_home_bestVideo) as RecyclerView
-
+        
         recyclerLatestVideo.apply {
             this.layoutManager = LinearLayoutManager(activity).also {
                 it.orientation = LinearLayoutManager.HORIZONTAL
@@ -58,4 +55,5 @@ class HomeFragment : Fragment() {
         
         return view
     }
+
 }
