@@ -9,7 +9,6 @@
     <string name="login_signIn">Sign In</string>
     <string name="login_signUp">Sign Up</string>
     <string name="profile_edit">Edit</string>
-    <string name="profile_name">Name</string>
     <string name="profile_signOut">Sign Out</string>
     <string name="signIn_email">E-mail</string>
     <string name="signIn_password">Password</string>
@@ -33,4 +32,5 @@
     <string name="emailVerified_checkImage_description">Check</string>
     <string name="emailVerified_complete">Verification completed</string>
     <string name="emailVerified_start">Start</string>
+    <string name="title_setting">Setting</string>
 </resources>

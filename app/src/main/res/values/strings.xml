@@ -6,6 +6,7 @@
     <string name="title_profile">Profile</string>
     <string name="title_signIn">Sign In</string>
     <string name="title_signUp">Sign Up</string>
+    <string name="title_setting">Setting</string>
 
     <string name="login_signIn">Sign In</string>
     <string name="login_signUp">Sign Up</string>
@@ -26,7 +27,6 @@
 
     <string name="profile_signOut">Sign Out</string>
     <string name="profile_edit">Edit</string>
-    <string name="profile_name">Name</string>
 
     <string name="facebook_app_id" translatable="false">173371833894134</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb173371833894134</string>

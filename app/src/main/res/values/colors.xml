@@ -11,4 +11,5 @@
 
 
     <color name="defaultBackgroundColor">#FAFAFA</color>
+    <color name="defaultTintColor">#363640</color>
 </resources>

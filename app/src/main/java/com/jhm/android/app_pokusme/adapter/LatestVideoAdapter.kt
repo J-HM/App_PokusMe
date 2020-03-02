@@ -21,6 +21,7 @@ class LatestVideoAdapter(private val latestVideos: ArrayList<VideoData>) : Recyc
         val id = latestVideos[position].id
         
         holder.view.text_latestVideo_title.text = title
+        holder.view.text_latestVideo_title.text = id
         // getLifecycle().addObserver(holder.view.youtube_player_view)
     }
     

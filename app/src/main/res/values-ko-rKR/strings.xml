@@ -12,7 +12,6 @@
     <string name="login_naver">네이버</string>
     <string name="profile_signOut">로그아웃</string>
     <string name="profile_edit">수정하기</string>
-    <string name="profile_name">이름</string>
     <string name="signIn_email">이메일</string>
     <string name="signIn_password">비밀번호</string>
     <string name="signIn_signIn">로그인</string>
@@ -33,4 +32,5 @@
     <string name="emailVerified_checkImage_description">체크</string>
     <string name="emailVerified_complete">인증 완료</string>
     <string name="emailVerified_start">시작하기</string>
+    <string name="title_setting">설정</string>
 </resources>

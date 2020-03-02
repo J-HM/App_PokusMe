@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         
         val navigationController = findNavController(R.id.navigation_host_fragment)
         navigation_view.setupWithNavController(navigationController)
-
+        
         auth = FirebaseAuth.getInstance()
     }
     
@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
             else -> updateUserData(currentUser)
         }
     }
-
     
     private fun updateUserData(_currentUser: FirebaseUser?) {
         val displayName = _currentUser?.displayName.toString()
