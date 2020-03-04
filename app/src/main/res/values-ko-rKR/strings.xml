@@ -33,4 +33,5 @@
     <string name="emailVerified_complete">인증 완료</string>
     <string name="emailVerified_start">시작하기</string>
     <string name="title_setting">설정</string>
+    <string name="title_edit">수정</string>
 </resources>

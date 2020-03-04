@@ -7,6 +7,7 @@
     <string name="title_signIn">Sign In</string>
     <string name="title_signUp">Sign Up</string>
     <string name="title_setting">Setting</string>
+    <string name="title_edit">Edit</string>
 
     <string name="login_signIn">Sign In</string>
     <string name="login_signUp">Sign Up</string>

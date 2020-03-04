@@ -13,22 +13,15 @@
         android:background="@color/defaultBackgroundColor"
         app:liftOnScroll="true">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_profile_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:titleEnabled="true"
-            app:toolbarId="@+id/toolbar_profile_toolbar">
+            android:layout_height="?attr/actionBarSize"
+            android:paddingStart="0dp"
+            android:paddingEnd="16dp"
+            app:menu="@menu/profile_item_menu"
+            app:title="@string/title_profile" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar_profile_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:paddingStart="0dp"
-                android:paddingEnd="16dp"
-                app:menu="@menu/profile_item_menu" />
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView

@@ -1,4 +1,4 @@
-package com.jhm.android.app_pokusme.ui.profile
+package com.jhm.android.app_pokusme.ui.submit
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,11 +13,10 @@ import com.jhm.android.app_pokusme.MainActivity
 import com.jhm.android.app_pokusme.R
 import com.jhm.android.app_pokusme.data.UserData
 import com.jhm.android.app_pokusme.ui.auth.LoginActivity
-import com.jhm.android.app_pokusme.ui.submit.SubmitViewModel
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 
-class ProfileFragment : Fragment() {
+class SubmitFragment : Fragment() {
     private lateinit var profileViewModel: SubmitViewModel
     private lateinit var currentUser: UserData
     
