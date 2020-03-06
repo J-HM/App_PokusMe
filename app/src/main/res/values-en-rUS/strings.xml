@@ -34,4 +34,6 @@
     <string name="emailVerified_start">Start</string>
     <string name="title_setting">Setting</string>
     <string name="title_edit">Edit</string>
+    <string name="title_signOut">Sign Out</string>
+    <string name="title_profileEdit">Profile Edit</string>
 </resources>

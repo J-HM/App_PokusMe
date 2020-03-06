@@ -8,6 +8,8 @@
     <string name="title_signUp">Sign Up</string>
     <string name="title_setting">Setting</string>
     <string name="title_edit">Edit</string>
+    <string name="title_signOut">Sign Out</string>
+    <string name="title_profileEdit">Profile Edit</string>
 
     <string name="login_signIn">Sign In</string>
     <string name="login_signUp">Sign Up</string>

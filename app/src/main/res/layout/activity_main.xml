@@ -24,7 +24,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:paddingStart="0dp"
                 android:paddingEnd="16dp"
-                app:menu="@menu/profile_menu" />
+                app:menu="@menu/menu_profile" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         <com.google.android.material.tabs.TabLayout

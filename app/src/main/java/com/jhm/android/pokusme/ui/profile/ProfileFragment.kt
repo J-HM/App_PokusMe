@@ -35,7 +35,7 @@ class ProfileFragment : Fragment() {
     
         val mainActivity: MainActivity? = activity as MainActivity?
         currentUser = mainActivity!!.currentUser
-        userDataUpdate()
+        updateUserData()
     
         val buttonSignOut = view.findViewById(R.id.button_profile_signOut) as ImageButton
         val buttonEdit = view.findViewById(R.id.button_profile_edit) as ImageButton
@@ -46,7 +46,7 @@ class ProfileFragment : Fragment() {
         return view
     }
     
-    private fun userDataUpdate() {
+    private fun updateUserData() {
         profileViewModel.displayName.value = this.currentUser.displayName
         profileViewModel.email.value = this.currentUser.email
         profileViewModel.isEmailVerified.value = this.currentUser.isEmailVerified

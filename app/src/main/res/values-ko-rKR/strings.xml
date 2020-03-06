@@ -34,4 +34,6 @@
     <string name="emailVerified_start">시작하기</string>
     <string name="title_setting">설정</string>
     <string name="title_edit">수정</string>
+    <string name="title_signOut">로그아웃</string>
+    <string name="title_profileEdit">프로필 수정</string>
 </resources>
