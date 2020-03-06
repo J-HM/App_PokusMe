@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.jhm.android.app_pokusme">
+    package="com.jhm.android.pokusme">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,21 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.setting.SettingActivity" />
+        <activity android:name="com.jhm.android.pokusme.ui.setting.SettingActivity" />
         <activity
-            android:name=".ui.auth.EmailVerifiedActivity" />
+            android:name="com.jhm.android.pokusme.ui.auth.EmailVerifiedActivity" />
         <activity
-            android:name=".ui.auth.SignUpActivity"
+            android:name="com.jhm.android.pokusme.ui.auth.SignUpActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".ui.auth.SignInActivity"
+            android:name="com.jhm.android.pokusme.ui.auth.SignInActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".ui.auth.LoginActivity" />
+            android:name="com.jhm.android.pokusme.ui.auth.LoginActivity" />
         <activity
-            android:name=".MainActivity" />
+            android:name="com.jhm.android.pokusme.MainActivity" />
         <activity
-            android:name=".SplashActivity"
+            android:name="com.jhm.android.pokusme.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
