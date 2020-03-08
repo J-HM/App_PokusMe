@@ -26,10 +26,12 @@
         <activity
             android:name="com.jhm.android.pokusme.ui.auth.LoginActivity" />
         <activity
-            android:name="com.jhm.android.pokusme.MainActivity" />
+            android:name="com.jhm.android.pokusme.MainActivity"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name="com.jhm.android.pokusme.SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

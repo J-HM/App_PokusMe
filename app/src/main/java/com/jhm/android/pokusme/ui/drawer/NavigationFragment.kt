@@ -1,5 +1,6 @@
 package com.jhm.android.pokusme.ui.drawer
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,10 +10,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.jhm.android.pokusme.MainActivity
 import com.jhm.android.pokusme.R
 import com.jhm.android.pokusme.R.layout.fragment_navigation
 import com.jhm.android.pokusme.data.UserData
+import com.jhm.android.pokusme.ui.auth.LoginActivity
 import kotlinx.android.synthetic.main.fragment_navigation.*
 
 
@@ -27,8 +30,11 @@ class NavigationFragment : BottomSheetDialogFragment() {
         enrollObserve()
         
         val mainActivity: MainActivity? = activity as MainActivity?
-        currentUser = mainActivity!!.currentUser
-        updateUserData()
+
+        mainActivity!!.currentUser?.let {
+            currentUser = it
+            updateUserData()
+        }
         
         val navigationView = view.findViewById<NavigationView>(R.id.navigation_navigation)
         setNavigationItemSelectedListener(navigationView)
@@ -40,7 +46,7 @@ class NavigationFragment : BottomSheetDialogFragment() {
         navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_navigation_signOut -> {
-                    Log.d("jhmlog", "menu_navigation_signOut")
+                    signOut()
                     true
                 }
                 R.id.menu_navigation_profileEdit -> {
@@ -68,5 +74,11 @@ class NavigationFragment : BottomSheetDialogFragment() {
     private fun updateUserData() {
         navigationViewModel.displayName.value = this.currentUser.displayName
         navigationViewModel.email.value = this.currentUser.email
+    }
+    
+    private fun signOut() {
+        FirebaseAuth.getInstance().signOut()
+        startActivity(Intent(activity, LoginActivity::class.java))
+        activity?.finish()
     }
 }

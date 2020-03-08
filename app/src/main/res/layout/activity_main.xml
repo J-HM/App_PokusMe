@@ -24,32 +24,37 @@
                 android:layout_height="?attr/actionBarSize"
                 android:paddingStart="0dp"
                 android:paddingEnd="16dp"
-                app:menu="@menu/menu_profile" />
+                app:menu="@menu/menu_famous" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabbar_main"
             android:layout_width="match_parent"
             android:layout_height="32dp"
-            android:background="@android:color/white">
+            android:background="@android:color/white"
+            app:tabGravity="center"
+            app:tabIndicatorGravity="bottom"
+            app:tabIndicatorHeight="3dp"
+            app:tabMinWidth="80dp"
+            app:tabTextAppearance="@style/MineCustomTabText">
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabItem"
+                android:id="@+id/tab_main_famous"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tab2" />
+                android:text="@string/text_popular" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabItem2"
+                android:id="@+id/tab_main_vote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tab3" />
+                android:text="@string/text_vote" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabItem3"
+                android:id="@+id/tab_main_invest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tab4" />
+                android:text="@string/text_invest" />
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -78,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_brush"
-        app:backgroundTint="@color/primaryColor"
+        app:backgroundTint="@color/defaultTintColor"
         app:fabSize="normal"
         app:layout_anchor="@id/bottomAppbar_main"
         app:tint="@android:color/white" />

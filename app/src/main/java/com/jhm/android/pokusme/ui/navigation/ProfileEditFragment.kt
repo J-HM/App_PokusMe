@@ -1,4 +1,4 @@
-package com.jhm.android.pokusme.ui.profile
+package com.jhm.android.pokusme.ui.navigation
 
 import android.content.Intent
 import android.os.Bundle
@@ -18,23 +18,23 @@ import com.jhm.android.pokusme.ui.auth.LoginActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 
-class ProfileFragment : Fragment() {
-    private lateinit var profileViewModel: ProfileViewModel
+class ProfileEditFragment : Fragment() {
+    private lateinit var profileEditViewModel: ProfileEditViewModel
     private lateinit var currentUser: UserData
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
     
-        profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
-        profileViewModel.displayName.observe(viewLifecycleOwner, Observer {
+        profileEditViewModel = ViewModelProvider(this).get(ProfileEditViewModel::class.java)
+        profileEditViewModel.displayName.observe(viewLifecycleOwner, Observer {
             text_profile_name.text = it
         })
-        profileViewModel.email.observe(viewLifecycleOwner, Observer {
+        profileEditViewModel.email.observe(viewLifecycleOwner, Observer {
             text_profile_email.text = it
         })
     
         val mainActivity: MainActivity? = activity as MainActivity?
-        currentUser = mainActivity!!.currentUser
+        currentUser = mainActivity!!.currentUser!!
         updateUserData()
     
         val buttonSignOut = view.findViewById(R.id.button_profile_signOut) as ImageButton
@@ -47,9 +47,9 @@ class ProfileFragment : Fragment() {
     }
     
     private fun updateUserData() {
-        profileViewModel.displayName.value = this.currentUser.displayName
-        profileViewModel.email.value = this.currentUser.email
-        profileViewModel.isEmailVerified.value = this.currentUser.isEmailVerified
+        profileEditViewModel.displayName.value = this.currentUser.displayName
+        profileEditViewModel.email.value = this.currentUser.email
+        profileEditViewModel.isEmailVerified.value = this.currentUser.isEmailVerified
     }
     
     private fun signOut() {

@@ -24,9 +24,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var homeFragment: HomeFragment
     private lateinit var submitFragment: SubmitFragment
     
-    lateinit var currentUser: UserData
+    private val navigationFragment = NavigationFragment()
+    
+    var currentUser: UserData? = null
     private var isHome: Boolean = true
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,8 +41,7 @@ class MainActivity : AppCompatActivity() {
         )
         
         bottomAppbar_main.setNavigationOnClickListener {
-            val navigationFragment = NavigationFragment()
-            navigationFragment.show(supportFragmentManager, "TAG")
+            this.navigationFragment.show(supportFragmentManager, "TAG")
         }
     }
     
