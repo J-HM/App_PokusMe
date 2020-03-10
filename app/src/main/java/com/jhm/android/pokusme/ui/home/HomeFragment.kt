@@ -5,55 +5,55 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import com.jhm.android.pokusme.MainActivity
 import com.jhm.android.pokusme.R
-import com.jhm.android.pokusme.adapter.BestVideoAdapter
-import com.jhm.android.pokusme.adapter.LatestVideoAdapter
-import com.jhm.android.pokusme.data.VideoData
+import com.jhm.android.pokusme.ui.submit.SubmitFragment
 
 
 class HomeFragment : Fragment() {
-    private lateinit var homeViewModel: HomeViewModel
-    private val latestVideos = ArrayList<VideoData>()
-    private val bestVideos = ArrayList<VideoData>()
+    private var fragmentTransaction: FragmentTransaction? = null
+
+    private var popularFragment: HomeFragment? = null
+    private var voteFragment: SubmitFragment? = null
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            // text_home.text = it
-        })
         
-        latestVideos.add(VideoData("test1", "UMW9NmlX1ws"))
-        latestVideos.add(VideoData("test2", "UMW9NmlX1ws"))
-        latestVideos.add(VideoData("test3", "UMW9NmlX1ws"))
-        latestVideos.add(VideoData("test4", "UMW9NmlX1ws"))
-        latestVideos.add(VideoData("test5", "UMW9NmlX1ws"))
-        
-        bestVideos.add(VideoData("test1", "UMW9NmlX1ws"))
-        bestVideos.add(VideoData("test2", "UMW9NmlX1ws"))
-        bestVideos.add(VideoData("test3", "UMW9NmlX1ws"))
-        bestVideos.add(VideoData("test4", "UMW9NmlX1ws"))
-        bestVideos.add(VideoData("test5", "UMW9NmlX1ws"))
-        
-        val recyclerLatestVideo = view.findViewById(R.id.recycler_home_latestVideo) as RecyclerView
-        val recyclerBestVideo = view.findViewById(R.id.recycler_home_bestVideo) as RecyclerView
-        
-        recyclerLatestVideo.apply {
-            this.layoutManager = LinearLayoutManager(activity).also {
-                it.orientation = LinearLayoutManager.HORIZONTAL
-            }
-            this.adapter = LatestVideoAdapter(latestVideos)
-        }
-        recyclerBestVideo.apply {
-            this.layoutManager = LinearLayoutManager(activity)
-            this.adapter = BestVideoAdapter(bestVideos)
-        }
+        popularFragment = HomeFragment()
+        voteFragment = SubmitFragment()
+    
+//        fragmentTransaction = childFragmentManager.beginTransaction()
+//        homeFragmentManager = mainActivity!!.supportFragmentManager
+//
+//        homeFragmentManager?.beginTransaction()?.add(R.id.frame_home, voteFragment!!)?.commit()
+//        homeFragmentManager?.beginTransaction()?.add(R.id.frame_home, popularFragment!!)?.commit()
+
+//        val tabBarHome = view.findViewById<TabLayout>(R.id.tabbar_home)
+//        tabBarHome.addOnTabSelectedListener(object : OnTabSelectedListener {
+//            override fun onTabSelected(tab: TabLayout.Tab) {
+//                if (tab.position == 0) {
+//                    homeFragmentManager?.beginTransaction()?.show(popularFragment!!)?.commit()
+//                } else if (tab.position == 1) {
+//                    homeFragmentManager?.beginTransaction()?.show(voteFragment!!)?.commit()
+//                }
+//            }
+//
+//            override fun onTabUnselected(tab: TabLayout.Tab) {
+//                if (tab.position == 0) {
+//                    homeFragmentManager?.beginTransaction()?.hide(popularFragment!!)?.commit()
+//                } else if (tab.position == 1) {
+//                    homeFragmentManager?.beginTransaction()?.hide(voteFragment!!)?.commit()
+//                }
+//            }
+//
+//            override fun onTabReselected(tab: TabLayout.Tab) {
+//
+//            }
+//        })
         
         return view
     }
-
+    
 }

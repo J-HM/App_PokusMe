@@ -30,7 +30,6 @@ class NavigationFragment : BottomSheetDialogFragment() {
         enrollObserve()
         
         val mainActivity: MainActivity? = activity as MainActivity?
-
         mainActivity!!.currentUser?.let {
             currentUser = it
             updateUserData()

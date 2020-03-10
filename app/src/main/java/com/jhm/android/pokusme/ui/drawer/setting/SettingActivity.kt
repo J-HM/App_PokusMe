@@ -1,4 +1,4 @@
-package com.jhm.android.pokusme.ui.setting
+package com.jhm.android.pokusme.ui.drawer.setting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

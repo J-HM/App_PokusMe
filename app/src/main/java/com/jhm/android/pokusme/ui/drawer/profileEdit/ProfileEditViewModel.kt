@@ -1,4 +1,4 @@
-package com.jhm.android.pokusme.ui.navigation
+package com.jhm.android.pokusme.ui.drawer.profileEdit
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

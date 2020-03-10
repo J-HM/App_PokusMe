@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.jhm.android.pokusme.ui.setting.SettingActivity" />
+        <activity android:name="com.jhm.android.pokusme.ui.drawer.setting.SettingActivity" />
         <activity
             android:name="com.jhm.android.pokusme.ui.auth.EmailVerifiedActivity" />
         <activity

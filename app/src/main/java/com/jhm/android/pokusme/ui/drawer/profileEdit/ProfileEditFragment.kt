@@ -1,4 +1,4 @@
-package com.jhm.android.pokusme.ui.navigation
+package com.jhm.android.pokusme.ui.drawer.profileEdit
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +15,7 @@ import com.jhm.android.pokusme.MainActivity
 import com.jhm.android.pokusme.R
 import com.jhm.android.pokusme.data.UserData
 import com.jhm.android.pokusme.ui.auth.LoginActivity
-import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.fragment_profile_edit.*
 
 
 class ProfileEditFragment : Fragment() {
@@ -23,7 +23,7 @@ class ProfileEditFragment : Fragment() {
     private lateinit var currentUser: UserData
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_profile_edit, container, false)
     
         profileEditViewModel = ViewModelProvider(this).get(ProfileEditViewModel::class.java)
         profileEditViewModel.displayName.observe(viewLifecycleOwner, Observer {
