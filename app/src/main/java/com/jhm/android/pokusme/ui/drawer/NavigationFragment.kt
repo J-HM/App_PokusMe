@@ -1,11 +1,14 @@
 package com.jhm.android.pokusme.ui.drawer
 
 import android.content.Intent
+import android.graphics.drawable.ShapeDrawable
+import android.graphics.drawable.shapes.OvalShape
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -16,6 +19,9 @@ import com.jhm.android.pokusme.R
 import com.jhm.android.pokusme.R.layout.fragment_navigation
 import com.jhm.android.pokusme.data.UserData
 import com.jhm.android.pokusme.ui.auth.LoginActivity
+import com.jhm.android.pokusme.ui.drawer.profile.ProfileActivity
+import com.jhm.android.pokusme.ui.drawer.profileEdit.ProfileEditActivity
+import com.jhm.android.pokusme.ui.drawer.setting.SettingActivity
 import kotlinx.android.synthetic.main.fragment_navigation.*
 
 
@@ -29,14 +35,18 @@ class NavigationFragment : BottomSheetDialogFragment() {
         navigationViewModel = ViewModelProvider(this).get(NavigationViewModel::class.java)
         enrollObserve()
         
-        val mainActivity: MainActivity? = activity as MainActivity?
-        mainActivity!!.currentUser?.let {
+        (activity as MainActivity?)!!.currentUser?.let {
             currentUser = it
             updateUserData()
         }
         
-        val navigationView = view.findViewById<NavigationView>(R.id.navigation_navigation)
-        setNavigationItemSelectedListener(navigationView)
+        setNavigationItemSelectedListener(view.findViewById<NavigationView>(R.id.navigation_navigation))
+        
+        view.findViewById<ImageButton>(R.id.button_navigation_profileEdit).setOnClickListener {
+            startActivity(Intent(activity, ProfileEditActivity::class.java))
+        }
+        
+        view.findViewById<ImageView>(R.id.image_navigation_default).background = ShapeDrawable(OvalShape())
         
         return view
     }
@@ -45,15 +55,17 @@ class NavigationFragment : BottomSheetDialogFragment() {
         navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_navigation_signOut -> {
-                    signOut()
+                    FirebaseAuth.getInstance().signOut()
+                    startActivity(Intent(activity, LoginActivity::class.java))
+                    activity?.finish()
                     true
                 }
-                R.id.menu_navigation_profileEdit -> {
-                    Log.d("jhmlog", "menu_navigation_profileEdit")
+                R.id.menu_navigation_profile -> {
+                    startActivity(Intent(activity, ProfileActivity::class.java))
                     true
                 }
                 R.id.menu_navigation_setting -> {
-                    Log.d("jhmlog", "menu_navigation_signOut")
+                    startActivity(Intent(activity, SettingActivity::class.java))
                     true
                 }
                 else -> false
@@ -74,10 +86,5 @@ class NavigationFragment : BottomSheetDialogFragment() {
         navigationViewModel.displayName.value = this.currentUser.displayName
         navigationViewModel.email.value = this.currentUser.email
     }
-    
-    private fun signOut() {
-        FirebaseAuth.getInstance().signOut()
-        startActivity(Intent(activity, LoginActivity::class.java))
-        activity?.finish()
-    }
+
 }

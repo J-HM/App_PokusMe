@@ -11,7 +11,8 @@
         android:id="@+id/navigation_navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:itemIconTint="@color/defaultTintColor"
+        app:elevation="8dp"
+        app:itemIconTint="@color/primaryDarkColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -26,11 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/defaultTintColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_navigation_profileEdit"
+        app:layout_constraintStart_toEndOf="@+id/image_navigation_default"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="정현민" />
 
@@ -44,8 +44,39 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/navigation_navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_navigation_default"
         app:layout_constraintTop_toBottomOf="@+id/text_navigation_displayName"
         tools:text="admin@pokus.me" />
+
+    <ImageView
+        android:id="@+id/image_navigation_default"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/description_navigation_default"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/text_navigation_email"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_navigation_displayName"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageButton
+        android:id="@+id/button_navigation_profileEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#FFFFFF"
+        android:contentDescription="@string/description_navigation_profileEdit"
+        android:src="@drawable/ic_edit"
+        android:tint="@color/primaryDarkColor"
+        app:layout_constraintBottom_toTopOf="@+id/text_navigation_email"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

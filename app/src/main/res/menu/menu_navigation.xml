@@ -5,13 +5,13 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/menu_navigation_signOut"
-            android:icon="@drawable/ic_check"
+            android:icon="@drawable/ic_exit"
             android:title="@string/title_signOut" />
 
         <item
-            android:id="@+id/menu_navigation_profileEdit"
-            android:icon="@drawable/ic_person_selector"
-            android:title="@string/title_profileEdit" />
+            android:id="@+id/menu_navigation_profile"
+            android:icon="@drawable/ic_person_outline"
+            android:title="@string/title_profile" />
 
     </group>
 
@@ -21,7 +21,7 @@
 
         <item
             android:id="@+id/menu_navigation_setting"
-            android:icon="@drawable/ic_setting"
+            android:icon="@drawable/ic_setting_outline"
             android:title="@string/title_setting" />
 
     </group>

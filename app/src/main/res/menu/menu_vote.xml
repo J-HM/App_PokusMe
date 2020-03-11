@@ -7,10 +7,4 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:title="@string/title_edit"
     app:showAsAction="ifRoom" />
 
-<item
-    android:id="@+id/appbar_setting"
-    android:icon="@drawable/ic_setting"
-    android:title="@string/title_setting"
-    app:showAsAction="always" />
-
 </menu>

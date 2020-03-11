@@ -16,6 +16,10 @@
     <string name="text_vote">Vote</string>
     <string name="text_invest">Invest</string>
 
+    <string name="description_emailVerified_checkImage">Check Image</string>
+    <string name="description_navigation_default">Default Picture</string>
+    <string name="description_navigation_profileEdit">Profile Edit</string>
+
     <string name="login_signIn">Sign In</string>
     <string name="login_signUp">Sign Up</string>
     <string name="login_google">Google</string>
@@ -51,6 +55,5 @@
     <string name="emailVerified_signOut">Sign Out</string>
     <string name="emailVerified_refresh">Refresh</string>
     <string name="emailVerified_start">Start</string>
-    <string name="emailVerified_checkImage_description">Check</string>
 
 </resources>

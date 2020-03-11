@@ -17,28 +17,28 @@ import com.jhm.android.pokusme.ui.home.HomeViewModel
 
 
 class PopularFragment : Fragment() {
-    private lateinit var popularViewModel: HomeViewModel
-    private val latestVideos = ArrayList<VideoData>()
-    private val bestVideos = ArrayList<VideoData>()
+    private lateinit var popularViewModel: PopularViewModel
+//    private val latestVideos = ArrayList<VideoData>()
+//    private val bestVideos = ArrayList<VideoData>()
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_popular, container, false)
-        popularViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        popularViewModel = ViewModelProvider(this).get(PopularViewModel::class.java)
         popularViewModel.text.observe(viewLifecycleOwner, Observer {
             // text_home.text = it
         })
         
-        latestVideos.add(VideoData("test1", "UMW9NmlX1ws"))
-        latestVideos.add(VideoData("test2", "UMW9NmlX1ws"))
-        latestVideos.add(VideoData("test3", "UMW9NmlX1ws"))
-        latestVideos.add(VideoData("test4", "UMW9NmlX1ws"))
-        latestVideos.add(VideoData("test5", "UMW9NmlX1ws"))
-        
-        bestVideos.add(VideoData("test1", "UMW9NmlX1ws"))
-        bestVideos.add(VideoData("test2", "UMW9NmlX1ws"))
-        bestVideos.add(VideoData("test3", "UMW9NmlX1ws"))
-        bestVideos.add(VideoData("test4", "UMW9NmlX1ws"))
-        bestVideos.add(VideoData("test5", "UMW9NmlX1ws"))
+//        latestVideos.add(VideoData("test1", "UMW9NmlX1ws"))
+//        latestVideos.add(VideoData("test2", "UMW9NmlX1ws"))
+//        latestVideos.add(VideoData("test3", "UMW9NmlX1ws"))
+//        latestVideos.add(VideoData("test4", "UMW9NmlX1ws"))
+//        latestVideos.add(VideoData("test5", "UMW9NmlX1ws"))
+//
+//        bestVideos.add(VideoData("test1", "UMW9NmlX1ws"))
+//        bestVideos.add(VideoData("test2", "UMW9NmlX1ws"))
+//        bestVideos.add(VideoData("test3", "UMW9NmlX1ws"))
+//        bestVideos.add(VideoData("test4", "UMW9NmlX1ws"))
+//        bestVideos.add(VideoData("test5", "UMW9NmlX1ws"))
     
 //        val recyclerLatestVideo = view.findViewById(R.id.recycler_home_latestVideo) as RecyclerView
 //        val recyclerBestVideo = view.findViewById(R.id.recycler_home_bestVideo) as RecyclerView

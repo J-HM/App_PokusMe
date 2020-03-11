@@ -3,7 +3,7 @@ package com.jhm.android.pokusme
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    private var fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+    private var fragmentManager: FragmentManager = supportFragmentManager
     
     private val homeFragment: HomeFragment = HomeFragment()
     private val submitFragment: SubmitFragment = SubmitFragment()
@@ -64,8 +64,8 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun setFABOnClickListener(setHomeOnClickListener: () -> Unit, setSubmitOnClickListener: () -> Unit) {
-        fragmentTransaction.add(R.id.frame_main, submitFragment).commit()
-        fragmentTransaction.add(R.id.frame_main, homeFragment).commit()
+        fragmentManager.beginTransaction().add(R.id.frame_main, submitFragment).commit()
+        fragmentManager.beginTransaction().add(R.id.frame_main, homeFragment).commit()
         button_main_core.setOnClickListener {
             if (isHome) setSubmitOnClickListener()
             else setHomeOnClickListener()
@@ -74,8 +74,8 @@ class MainActivity : AppCompatActivity() {
     
     private fun submitOnClickListener() {
         button_main_core.animate().setDuration(300).rotationBy(-360f).start() // 성능저하
-        fragmentTransaction.show(submitFragment).commit()
-        fragmentTransaction.hide(homeFragment).commit()
+        fragmentManager.beginTransaction().show(submitFragment).commit()
+        fragmentManager.beginTransaction().hide(homeFragment).commit()
         bottomAppbar_main.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER // 성능저하
         button_main_core.setImageResource(R.drawable.ic_home)
         appbar_main.setExpanded(true)
@@ -85,8 +85,8 @@ class MainActivity : AppCompatActivity() {
     
     private fun homeOnClickListener() {
         button_main_core.animate().setDuration(300).rotationBy(360f).start() // 성능저하
-        fragmentTransaction.show(homeFragment).commit()
-        fragmentTransaction.hide(submitFragment).commit()
+        fragmentManager.beginTransaction().show(homeFragment).commit()
+        fragmentManager.beginTransaction().hide(submitFragment).commit()
         bottomAppbar_main.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END // 성능저하
         button_main_core.setImageResource(R.drawable.ic_brush)
         appbar_main.elevation = 0f

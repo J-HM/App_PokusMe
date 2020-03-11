@@ -40,4 +40,7 @@
     <string name="text_vote">투표</string>
     <string name="text_invest">투자</string>
     <string name="title_search">검색</string>
+    <string name="description_emailVerified_checkImage">체크 이미지</string>
+    <string name="description_navigation_default">프로필 사진</string>
+    <string name="description_navigation_profileEdit">프로필 수정</string>
 </resources>

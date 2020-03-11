@@ -14,24 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.jhm.android.pokusme.ui.drawer.setting.SettingActivity" />
+        <activity android:name=".ui.drawer.profile.ProfileActivity"></activity>
+        <activity android:name=".ui.drawer.profileEdit.ProfileEditActivity" />
+        <activity android:name=".ui.drawer.setting.SettingActivity" />
+        <activity android:name=".ui.auth.EmailVerifiedActivity" />
         <activity
-            android:name="com.jhm.android.pokusme.ui.auth.EmailVerifiedActivity" />
-        <activity
-            android:name="com.jhm.android.pokusme.ui.auth.SignUpActivity"
+            android:name=".ui.auth.SignUpActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.jhm.android.pokusme.ui.auth.SignInActivity"
+            android:name=".ui.auth.SignInActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ui.auth.LoginActivity" />
         <activity
-            android:name="com.jhm.android.pokusme.ui.auth.LoginActivity" />
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.jhm.android.pokusme.MainActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity
-            android:name="com.jhm.android.pokusme.SplashActivity"
-            android:theme="@style/SplashTheme" >
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
