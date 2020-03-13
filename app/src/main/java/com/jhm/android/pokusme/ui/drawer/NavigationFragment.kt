@@ -61,10 +61,12 @@ class NavigationFragment : BottomSheetDialogFragment() {
                     true
                 }
                 R.id.menu_navigation_profile -> {
+                    this.dismiss()
                     startActivity(Intent(activity, ProfileActivity::class.java))
                     true
                 }
                 R.id.menu_navigation_setting -> {
+                    this.dismiss()
                     startActivity(Intent(activity, SettingActivity::class.java))
                     true
                 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+                <item
+                    android:id="@+id/menu_setting_signOut"
+                    android:icon="@drawable/ic_exit"
+                    android:title="@string/title_signOut" />
+
+                <item
+                    android:id="@+id/menu_setting_profile"
+                    android:icon="@drawable/ic_person_outline"
+                    android:title="@string/title_profile" />
+
+
+
+    <item android:title="@string/title_profile">
+        <menu>
+            <group
+                android:id="@+id/menu_group_2"
+                android:checkableBehavior="none">
+                <item
+                    android:id="@+id/menu_setting_signOut2"
+                    android:icon="@drawable/ic_exit"
+                    android:title="@string/title_signOut" />
+
+                <item
+                    android:id="@+id/menu_setting_profileEdit"
+                    android:icon="@drawable/ic_person_outline"
+                    android:title="@string/title_profileEdit" />
+
+            </group>
+        </menu>
+    </item>
+</menu>

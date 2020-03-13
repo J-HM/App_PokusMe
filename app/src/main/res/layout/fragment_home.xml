@@ -19,7 +19,7 @@
         app:tabIndicatorGravity="bottom"
         app:tabIndicatorHeight="3dp"
         app:tabMinWidth="80dp"
-        app:tabTextAppearance="@style/MineCustomTabText">
+        app:tabTextAppearance="@style/TabTheme">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tab_main_popular"

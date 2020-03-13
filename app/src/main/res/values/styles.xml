@@ -10,8 +10,12 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
+    <style name="TabTheme" parent="TextAppearance.Design.Tab">
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SettingTheme" parent="Base.Theme.AppCompat" >
+        <item name="android:listDivider">@color/primaryColor</item>
     </style>
 
 </resources>
