@@ -11,7 +11,7 @@ import com.jhm.android.pokusme.data.UserData
 import com.jhm.android.pokusme.ui.auth.EmailVerifiedActivity
 import com.jhm.android.pokusme.ui.auth.LoginActivity
 import com.jhm.android.pokusme.ui.drawer.NavigationFragment
-import com.jhm.android.pokusme.ui.home.HomeFragment
+import com.jhm.android.pokusme.ui.main.MainFragment
 import com.jhm.android.pokusme.ui.submit.SubmitFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private var fragmentManager: FragmentManager = supportFragmentManager
     
-    private val homeFragment: HomeFragment = HomeFragment()
+    private val homeFragment: MainFragment = MainFragment()
     private val submitFragment: SubmitFragment = SubmitFragment()
     
     private val navigationFragment = NavigationFragment()

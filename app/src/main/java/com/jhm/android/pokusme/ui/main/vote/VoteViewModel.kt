@@ -1,4 +1,4 @@
-package com.jhm.android.pokusme.ui.home.vote
+package com.jhm.android.pokusme.ui.main.vote
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

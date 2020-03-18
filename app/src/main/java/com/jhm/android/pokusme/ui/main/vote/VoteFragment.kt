@@ -1,4 +1,4 @@
-package com.jhm.android.pokusme.ui.home.invest
+package com.jhm.android.pokusme.ui.main.vote
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,16 +10,16 @@ import androidx.lifecycle.ViewModelProvider
 import com.jhm.android.pokusme.R
 
 
-class InvestFragment : Fragment() {
-    private lateinit var investViewModel: InvestViewModel
+class VoteFragment : Fragment() {
+    private lateinit var voteViewModel: VoteViewModel
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_invest, container, false)
-        investViewModel = ViewModelProvider(this).get(InvestViewModel::class.java)
-        investViewModel.text.observe(viewLifecycleOwner, Observer {
+        val view = inflater.inflate(R.layout.fragment_vote, container, false)
+        voteViewModel = ViewModelProvider(this).get(VoteViewModel::class.java)
+        voteViewModel.text.observe(viewLifecycleOwner, Observer {
             // text_home.text = it
         })
-        
+
         return view
     }
 

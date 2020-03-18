@@ -36,11 +36,13 @@
     <string name="title_edit">수정</string>
     <string name="title_signOut">로그아웃</string>
     <string name="title_profileEdit">프로필 수정</string>
-    <string name="text_popular">인기</string>
+    <string name="text_home">홈</string>
     <string name="text_vote">투표</string>
     <string name="text_invest">투자</string>
     <string name="title_search">검색</string>
     <string name="description_emailVerified_checkImage">체크 이미지</string>
     <string name="description_navigation_default">프로필 사진</string>
     <string name="description_navigation_profileEdit">프로필 수정</string>
+    <string name="text_latestVideo">최근 영상</string>
+    <string name="text_popularVideo">인기 영상</string>
 </resources>

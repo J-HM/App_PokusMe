@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.drawer.profile.ProfileActivity"></activity>
+        <activity android:name=".ui.drawer.profile.ProfileActivity" />
         <activity android:name=".ui.drawer.profileEdit.ProfileEditActivity" />
         <activity android:name=".ui.drawer.setting.SettingActivity" />
         <activity android:name=".ui.auth.EmailVerifiedActivity" />

@@ -36,11 +36,13 @@
     <string name="title_edit">Edit</string>
     <string name="title_signOut">Sign Out</string>
     <string name="title_profileEdit">Profile Edit</string>
-    <string name="text_popular">Trending</string>
+    <string name="text_home">Home</string>
     <string name="text_vote">Vote</string>
     <string name="text_invest">Invest</string>
     <string name="title_search">Search</string>
     <string name="description_emailVerified_checkImage">Check Image</string>
     <string name="description_navigation_default">Default Picture</string>
     <string name="description_navigation_profileEdit">Profile Edit</string>
+    <string name="text_latestVideo">Latest video</string>
+    <string name="text_popularVideo">Trending Video</string>
 </resources>
