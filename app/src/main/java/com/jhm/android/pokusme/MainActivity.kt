@@ -97,7 +97,8 @@ class MainActivity : AppCompatActivity() {
         val displayName = _currentUser?.displayName.toString()
         val email = _currentUser?.email.toString()
         val isEmailVerified = _currentUser?.isEmailVerified
-        this.currentUser = UserData(displayName, email, isEmailVerified)
+        val uid = _currentUser?.uid
+        this.currentUser = UserData(displayName, email, isEmailVerified, uid)
     }
     
 }

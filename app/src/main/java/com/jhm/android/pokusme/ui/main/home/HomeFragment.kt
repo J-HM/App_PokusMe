@@ -15,17 +15,11 @@ import com.jhm.android.pokusme.data.VideoData
 
 
 class HomeFragment : Fragment() {
-    private lateinit var homeViewModel: HomeViewModel
-    
     private val latestVideos = ArrayList<VideoData>()
     private val popularVideos = ArrayList<VideoData>()
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-//        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//            text_home.text = it
-//        })
         
         latestVideos.add(
             VideoData(
@@ -61,15 +55,9 @@ class HomeFragment : Fragment() {
         val recyclerPopular = view.findViewById(R.id.recycler_home_popular) as RecyclerView
         
         recyclerLatest.apply {
-            this.layoutManager = LinearLayoutManager(activity).also {
-                it.orientation = LinearLayoutManager.HORIZONTAL
-            }
             this.adapter = LatestVideoAdapter(latestVideos, context)
         }
         recyclerPopular.apply {
-            this.layoutManager = LinearLayoutManager(activity).also {
-                it.orientation = LinearLayoutManager.HORIZONTAL
-            }
             this.adapter = PopularVideoAdapter(popularVideos, context)
         }
         
