@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jhm.android.pokusme.R
 import com.jhm.android.pokusme.data.VoteData
+import com.jhm.android.pokusme.global.TimeAgo
 import kotlinx.android.synthetic.main.row_vote.view.*
 
 
@@ -22,9 +23,13 @@ class VoteAdapter(private val votes: ArrayList<VoteData>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val title = votes[position].title
         val content = votes[position].content
+        val uploadTime = votes[position].uploadTime
+        val displayName = votes[position].displayName
         
         holder.view.text_vote_title.text = title
-        Log.d("jhmlog", "test $content")
+        holder.view.text_vote_content.text = content
+        holder.view.text_vote_uploadTime.text = TimeAgo.getTimeAgo(uploadTime)
+        holder.view.text_vote_displayName.text = displayName
     }
     
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)

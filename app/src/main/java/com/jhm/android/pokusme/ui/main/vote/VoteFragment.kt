@@ -26,33 +26,63 @@ class VoteFragment : Fragment() {
         }
         
         getVote(
-            onSuccess = { assignVote(it) },
-            onFailure = { handleError(it) }
+            onSuccess = {
+                Log.d("jhmlog", "GET VOTE SUCCESS: $it")
+                assignVote(it)
+                assignName()
+            },
+            onFailure = {
+                Log.d("jhmlog", "GET VOTE FAILURE: $it")
+                handleError(it)
+            }
         )
         
         return view
     }
     
     private fun assignVote(snapshot: QuerySnapshot) {
+        Log.d("jhmlog", "${snapshot.size()}")
         for (document in snapshot) {
             Log.d("jhmlog", "${document.id} => ${document.data}")
             votes.add(
                 VoteData(
-                    document.data["title"] as String,
-                    document.data["content"] as String,
-                    document.data["time"] as Timestamp,
-                    document.data["id"] as String
+                    title = document.data["title"] as String,
+                    content = document.data["content"] as String,
+                    uploadTime = document.data["time"] as Timestamp,
+                    userId = document.data["id"] as String
                 )
             )
         }
     }
     
-    private fun handleError(exception: Exception) {
+    private fun assignName() {
+        for (index in votes.indices)
+            votes[index].displayName = getDisplayName(votes[index].userId)
+    }
     
+    private fun getDisplayName(userId: String?): String? {
+        var displayName: String? = null
+        
+        val database = FirebaseFirestore.getInstance()
+        val documentReference = userId?.let { database.collection("USER").document(it) }
+        documentReference?.get()?.addOnSuccessListener { document ->
+            document?.let {
+                Log.d("jhmlog", "GET NAME SUCCESS: ${document.data}")
+                displayName = document.data?.get("name") as String
+            }
+        }?.addOnFailureListener { exception ->
+            Log.d("jhmlog", "GET NAME FAILURE: ", exception)
+        }
+        
+        return displayName
+    }
+    
+    private fun handleError(exception: Exception) {
     }
     
     private fun getVote(onSuccess: (QuerySnapshot) -> Unit, onFailure: (Exception) -> Unit) {
         val database = FirebaseFirestore.getInstance()
+        
         database.collection("VOTE")
 //            .orderBy("upload time")
             .get()

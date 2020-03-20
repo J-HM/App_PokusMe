@@ -45,4 +45,5 @@
     <string name="description_navigation_profileEdit">Profile Edit</string>
     <string name="text_latestVideo">Latest video</string>
     <string name="text_popularVideo">Trending Video</string>
+    <string name="description_vote_default">Default Picture</string>
 </resources>

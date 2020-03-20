@@ -10,4 +10,5 @@
     <color name="secondaryTextColor">#000000</color>
 
     <color name="defaultTintColor">#363640</color>
+    <color name="defaultBackgroundColor">#eceff1</color>
 </resources>
