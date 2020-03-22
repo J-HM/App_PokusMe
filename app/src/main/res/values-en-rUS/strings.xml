@@ -46,4 +46,7 @@
     <string name="text_latestVideo">Latest video</string>
     <string name="text_popularVideo">Trending Video</string>
     <string name="description_vote_default">Default Picture</string>
+    <string name="description_vote_up">Like</string>
+    <string name="description_vote_down">Hate</string>
+    <string name="description_vote_comment">Comment</string>
 </resources>

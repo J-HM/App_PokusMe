@@ -62,6 +62,7 @@ dependencies {
 
     // facebook
     implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     // exo player
     implementation 'com.google.android.exoplayer:exoplayer:2.11.3'

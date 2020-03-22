@@ -7,8 +7,9 @@
     <color name="secondaryLightColor">#ffffff</color>
     <color name="secondaryDarkColor">#b4b8c1</color>
     <color name="primaryTextColor">#000000</color>
-    <color name="secondaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#757575</color>
 
     <color name="defaultTintColor">#363640</color>
     <color name="defaultBackgroundColor">#eceff1</color>
+    <color name="placeholderBackgroundColor">#cfd8dc</color>
 </resources>

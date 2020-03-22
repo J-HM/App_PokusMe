@@ -46,4 +46,7 @@
     <string name="text_latestVideo">최근 영상</string>
     <string name="text_popularVideo">인기 영상</string>
     <string name="description_vote_default">프로필 사진</string>
+    <string name="description_vote_up">좋아요</string>
+    <string name="description_vote_down">싫어요</string>
+    <string name="description_vote_comment">댓글</string>
 </resources>

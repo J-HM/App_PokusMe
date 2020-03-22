@@ -21,7 +21,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         
-        latestVideos.add(
+        /*latestVideos.add(
             VideoData(
                 "최신 비디오1",
                 "https://firebasestorage.googleapis.com/v0/b/pokus-6f2ae.appspot.com/o/video_idea_1.mp4?alt=media&token=52175d74-6ebc-47d6-ad92-cd3c447604fe".toUri(),
@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
                 "https://firebasestorage.googleapis.com/v0/b/pokus-6f2ae.appspot.com/o/video_idea_1.mp4?alt=media&token=52175d74-6ebc-47d6-ad92-cd3c447604fe".toUri(),
                 "https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg".toUri()
             )
-        )
+        )*/
         
         val recyclerLatest = view.findViewById(R.id.recycler_home_latest) as RecyclerView
         val recyclerPopular = view.findViewById(R.id.recycler_home_popular) as RecyclerView
