@@ -1,12 +1,11 @@
 package com.jhm.android.pokusme.adapter
 
-import android.content.Context
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestore
 import com.jhm.android.pokusme.R
 import com.jhm.android.pokusme.data.VoteData
 import com.jhm.android.pokusme.global.TimeAgo
@@ -33,7 +32,9 @@ class VoteAdapter(private val votes: ArrayList<VoteData>) : RecyclerView.Adapter
         val displayName = votes[position].displayName
         var good = votes[position].good
         var bad = votes[position].bad
-        Log.d("jhmlog", "$good $bad")
+        val userId = votes[position].userId
+        val voteId = votes[position].voteId
+
         if (good == null) good = 0
         if (bad == null) bad = 0
         
@@ -50,14 +51,25 @@ class VoteAdapter(private val votes: ArrayList<VoteData>) : RecyclerView.Adapter
             Log.d("jhmlog", "content ${holder.view.text_vote_content.height}")
             Log.d("jhmlog", "default ${holder.view.text_vote_uploadTime.height}")
         }
+        
+        holder.view.button_vote_good.setOnClickListener { transactScore(voteId, "good") }
+        holder.view.button_vote_bad.setOnClickListener { transactScore(voteId, "bad") }
+    }
     
-        holder.view.button_vote_bad.setOnClickListener {
-        
-        }
-        
-        holder.view.button_vote_good.setOnClickListener {
-        
-        }
+    private fun transactScore(voteId: String, which: String) {
+        val database = FirebaseFirestore.getInstance()
+        val documentReference = database.collection("VOTE").document(voteId)
+        database.runTransaction { transaction ->
+                val snapshot = transaction.get(documentReference)
+                
+                val newScore = snapshot.get(which) as Long + 1
+                transaction.update(documentReference, which, newScore)
+
+                null
+            }
+            .addOnSuccessListener { Log.d("jhmlog", "Transaction success") }
+            .addOnFailureListener { Log.d("jhmlog", "Transaction failure: $it") }
+    
     }
     
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)

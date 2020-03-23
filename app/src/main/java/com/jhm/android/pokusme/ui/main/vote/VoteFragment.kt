@@ -27,20 +27,19 @@ class VoteFragment : Fragment() {
         
         view.findViewById<SwipeRefreshLayout>(R.id.swipeRefresh_vote).apply {
             setOnRefreshListener {
-                if (votes.size == 0) swipeRefresh_vote.isRefreshing = false
-                else {
-                    votes.clear()
-                    getVote() {
-                        assignVote(it) {
-                            recycler_vote.adapter?.notifyDataSetChanged()
-                            swipeRefresh_vote.isRefreshing = false
-                        }
-                    }
+                if (votes.size == 0) {
+                    swipeRefresh_vote.isRefreshing = false
+                    return@setOnRefreshListener
+                }
+                votes.clear()
+                getVote() {
+                    recycler_vote.adapter?.notifyDataSetChanged()
+                    swipeRefresh_vote.isRefreshing = false
                 }
             }
         }
         
-        getVote() { assignVote(it) { recycler_vote.adapter = VoteAdapter(votes) } }
+        getVote() { recycler_vote.adapter = VoteAdapter(votes) }
         
         return view
     }
@@ -50,7 +49,11 @@ class VoteFragment : Fragment() {
         database.collection("VOTE")
 //            .orderBy("upload time")
             .get()
-            .addOnSuccessListener { onSuccess(it) }
+            .addOnSuccessListener {
+                assignVote(it) {
+                    onSuccess(it)
+                }
+            }
             .addOnFailureListener { handleError(it) }
     }
     
@@ -63,15 +66,16 @@ class VoteFragment : Fragment() {
             val userId = document.data["id"] as String?
             val good = document.data["good"] as Number?
             val bad = document.data["bad"] as Number?
+            val voteId = document.id
             getDisplayName(userId) { displayName ->
-                votes.add(VoteData(title, content, uploadTime, userId, displayName, good, bad))
+                votes.add(VoteData(title, content, uploadTime, userId, displayName, good, bad, voteId))
                 if (snapshot.size() == votes.size) {
-                    Log.d("jhmlog", "in of loop: $votes")
+                    Log.d("jhmlog", "in of loop")
                     onSuccess()
                 }
             }
         }
-        Log.d("jhmlog", "out of loop: $votes")
+        Log.d("jhmlog", "out of loop")
     }
     
     private fun getDisplayName(userId: String?, onSuccess: (String?) -> Unit) {

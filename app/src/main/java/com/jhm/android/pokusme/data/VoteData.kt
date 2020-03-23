@@ -10,5 +10,6 @@ data class VoteData(
     var displayName: String?,
     var good: Number?,
     var bad: Number?,
+    var voteId: String,
     var comments: ArrayList<CommentData>? = null
 )
