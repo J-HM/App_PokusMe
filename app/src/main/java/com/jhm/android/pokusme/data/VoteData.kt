@@ -3,13 +3,15 @@ package com.jhm.android.pokusme.data
 import com.google.firebase.Timestamp
 
 data class VoteData(
-    var title: String?,
-    var content: String?,
-    var uploadTime: Timestamp?,
-    var userId: String?,
-    var displayName: String?,
-    var good: Number?,
-    var bad: Number?,
+    var title: String,
+    var content: String,
+    var uploadTime: Timestamp,
+    var userId: String,
     var voteId: String,
-    var comments: ArrayList<CommentData>? = null
+
+    var commentCount: Number = 0,
+    var goodCount: Number = 0,
+    var badCount: Number = 0,
+
+    var displayName: String = ""
 )

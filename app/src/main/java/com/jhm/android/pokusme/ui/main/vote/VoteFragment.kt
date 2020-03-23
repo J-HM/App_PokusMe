@@ -9,12 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.firebase.Timestamp
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import com.jhm.android.pokusme.R
 import com.jhm.android.pokusme.adapter.VoteAdapter
 import com.jhm.android.pokusme.data.VoteData
 import kotlinx.android.synthetic.main.fragment_vote.*
+import kotlinx.coroutines.runBlocking
 
 
 class VoteFragment : Fragment() {
@@ -32,14 +34,14 @@ class VoteFragment : Fragment() {
                     return@setOnRefreshListener
                 }
                 votes.clear()
-                getVote() {
+                getVote {
                     recycler_vote.adapter?.notifyDataSetChanged()
                     swipeRefresh_vote.isRefreshing = false
                 }
             }
         }
         
-        getVote() { recycler_vote.adapter = VoteAdapter(votes) }
+        getVote { recycler_vote.adapter = VoteAdapter(votes) }
         
         return view
     }
@@ -47,46 +49,49 @@ class VoteFragment : Fragment() {
     private fun getVote(onSuccess: (QuerySnapshot) -> Unit) {
         val database = FirebaseFirestore.getInstance()
         database.collection("VOTE")
-//            .orderBy("upload time")
             .get()
             .addOnSuccessListener {
-                assignVote(it) {
-                    onSuccess(it)
-                }
+                assignVote(it) { onSuccess(it) }
             }
             .addOnFailureListener { handleError(it) }
     }
-    
+
     private fun assignVote(snapshot: QuerySnapshot, onSuccess: () -> Unit) {
         Log.d("jhmlog", "GET VOTE SUCCESS: ${snapshot.size()}")
-        for (document in snapshot) {
-            val title = document.data["title"] as String?
-            val content = document.data["content"] as String?
-            val uploadTime = document.data["time"] as Timestamp?
-            val userId = document.data["id"] as String?
-            val good = document.data["good"] as Number?
-            val bad = document.data["bad"] as Number?
+        snapshot.forEachIndexed { index, document ->
+            val title = document.data["title"] as String
+            val content = document.data["content"] as String
+            val uploadTime = document.data["time"] as Timestamp
+            val userId = document.data["id"] as String
             val voteId = document.id
+            val commentCount = document.data["comment"] as Number
+            val goodCount = document.data["good"] as Number
+            val badCount = document.data["bad"] as Number
+
+            votes.add(VoteData(title, content, uploadTime, userId, voteId, commentCount, goodCount, badCount))
+
             getDisplayName(userId) { displayName ->
-                votes.add(VoteData(title, content, uploadTime, userId, displayName, good, bad, voteId))
-                if (snapshot.size() == votes.size) {
-                    Log.d("jhmlog", "in of loop")
+                votes[index].displayName = displayName
+                Log.d("jhmlog", "embed name $index")
+                if ((index + 1) == snapshot.size()) {
                     onSuccess()
                 }
             }
         }
         Log.d("jhmlog", "out of loop")
     }
-    
-    private fun getDisplayName(userId: String?, onSuccess: (String?) -> Unit) {
+
+    private fun getDisplayName(userId: String?, onSuccess: (String) -> Unit) {
         val database = FirebaseFirestore.getInstance()
+
         if (userId == null) {
             onSuccess("이름없음")
             return
         }
+
         database.collection("USER").document(userId)
             .get()
-            .addOnSuccessListener { onSuccess(it.data?.get("name") as String?) }
+            .addOnSuccessListener { onSuccess(it.data?.get("name") as String) }
             .addOnFailureListener { Log.d("jhmlog", "GET NAME FAILURE: ", it) }
     }
     

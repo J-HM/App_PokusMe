@@ -30,13 +30,12 @@ class VoteAdapter(private val votes: ArrayList<VoteData>) : RecyclerView.Adapter
         val content = votes[position].content
         val uploadTime = votes[position].uploadTime
         val displayName = votes[position].displayName
-        var good = votes[position].good
-        var bad = votes[position].bad
-        val userId = votes[position].userId
-        val voteId = votes[position].voteId
 
-        if (good == null) good = 0
-        if (bad == null) bad = 0
+//        val userId = votes[position].userId
+//        val voteId = votes[position].voteId
+
+        val good = votes[position].goodCount
+        val bad = votes[position].badCount
         
         holder.view.text_vote_title.text = title
         holder.view.text_vote_content.text = content
@@ -52,8 +51,8 @@ class VoteAdapter(private val votes: ArrayList<VoteData>) : RecyclerView.Adapter
             Log.d("jhmlog", "default ${holder.view.text_vote_uploadTime.height}")
         }
         
-        holder.view.button_vote_good.setOnClickListener { transactScore(voteId, "good") }
-        holder.view.button_vote_bad.setOnClickListener { transactScore(voteId, "bad") }
+//        holder.view.button_vote_good.setOnClickListener { transactScore(voteId, "good") }
+//        holder.view.button_vote_bad.setOnClickListener { transactScore(voteId, "bad") }
     }
     
     private fun transactScore(voteId: String, which: String) {
@@ -69,7 +68,6 @@ class VoteAdapter(private val votes: ArrayList<VoteData>) : RecyclerView.Adapter
             }
             .addOnSuccessListener { Log.d("jhmlog", "Transaction success") }
             .addOnFailureListener { Log.d("jhmlog", "Transaction failure: $it") }
-    
     }
     
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)

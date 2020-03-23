@@ -24,6 +24,65 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <ImageButton
+                    android:id="@+id/button_votePlaceholder_bad"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#FFFFFF"
+                    android:contentDescription="@string/description_vote_down"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_votePlaceholder_content"
+                    app:srcCompat="@drawable/ic_arrow_downward" />
+
+                <View
+                    android:id="@+id/text_votePlaceholder_score"
+                    android:layout_width="32dp"
+                    android:layout_height="18dp"
+                    android:background="@color/placeholderBackgroundColor"
+                    app:layout_constraintBottom_toBottomOf="@+id/button_votePlaceholder_bad"
+                    app:layout_constraintStart_toEndOf="@+id/button_votePlaceholder_bad"
+                    app:layout_constraintTop_toTopOf="@+id/button_votePlaceholder_bad"
+                    tools:text="54" />
+
+                <ImageButton
+                    android:id="@+id/button_votePlaceholder_good"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="#FFFFFF"
+                    android:contentDescription="@string/description_vote_up"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/text_votePlaceholder_score"
+                    app:layout_constraintTop_toBottomOf="@+id/text_votePlaceholder_content"
+                    app:srcCompat="@drawable/ic_arrow_upward" />
+
+                <ImageButton
+                    android:id="@+id/button_votePlaceholder_comment"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#FFFFFF"
+                    android:contentDescription="@string/description_vote_comment"
+                    app:layout_constraintEnd_toStartOf="@+id/text_votePlaceholder_comment"
+                    app:layout_constraintTop_toBottomOf="@+id/text_votePlaceholder_content"
+                    app:srcCompat="@drawable/ic_comment" />
+
+                <View
+                    android:id="@+id/text_votePlaceholder_comment"
+                    android:layout_width="24dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/placeholderBackgroundColor"
+                    app:layout_constraintBottom_toBottomOf="@+id/button_votePlaceholder_comment"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/button_votePlaceholder_comment" />
+
                 <View
                     android:id="@+id/text_votePlaceholder_displayName"
                     android:layout_width="80dp"
@@ -75,9 +134,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
                     android:background="@color/placeholderBackgroundColor"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_votePlaceholder_title" />
