@@ -49,4 +49,8 @@
     <string name="description_vote_up">Like</string>
     <string name="description_vote_down">Hate</string>
     <string name="description_vote_comment">Comment</string>
+    <string name="description_vote_favorite">Favorite</string>
+    <string name="description_vote_more">More</string>
+    <string name="text_dispute">Either like it or hate it</string>
+    <string name="text_popular">Trending</string>
 </resources>

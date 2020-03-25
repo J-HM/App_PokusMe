@@ -49,4 +49,8 @@
     <string name="description_vote_up">좋아요</string>
     <string name="description_vote_down">싫어요</string>
     <string name="description_vote_comment">댓글</string>
+    <string name="description_vote_favorite">즐겨찾기</string>
+    <string name="description_vote_more">더보기</string>
+    <string name="text_popular">이번주의 베스트 아이템</string>
+    <string name="text_dispute">호불호 갈리는 아이템</string>
 </resources>

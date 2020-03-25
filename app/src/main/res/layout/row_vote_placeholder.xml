@@ -25,6 +25,36 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
+                    android:id="@+id/button_votePlaceholder_favorite"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="#FFFFFF"
+                    android:contentDescription="@string/description_vote_favorite"
+                    android:padding="8dp"
+                    android:scaleType="centerCrop"
+                    android:tint="@color/secondaryTextColor"
+                    app:layout_constraintEnd_toStartOf="@+id/button_votePlaceholder_more"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_star" />
+
+                <ImageButton
+                    android:id="@+id/button_votePlaceholder_more"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="#FFFFFF"
+                    android:contentDescription="@string/description_vote_more"
+                    android:padding="8dp"
+                    android:scaleType="centerCrop"
+                    android:tint="@color/secondaryTextColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_more" />
+
+                <ImageButton
                     android:id="@+id/button_votePlaceholder_bad"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
@@ -34,10 +64,13 @@
                     android:background="#FFFFFF"
                     android:backgroundTint="#FFFFFF"
                     android:contentDescription="@string/description_vote_down"
+                    android:padding="16dp"
+                    android:scaleType="centerCrop"
+                    android:tint="@color/secondaryTextColor"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_votePlaceholder_content"
-                    app:srcCompat="@drawable/ic_arrow_downward" />
+                    app:srcCompat="@drawable/ic_arrow_down" />
 
                 <View
                     android:id="@+id/text_votePlaceholder_score"
@@ -57,10 +90,13 @@
                     android:layout_marginBottom="16dp"
                     android:background="#FFFFFF"
                     android:contentDescription="@string/description_vote_up"
+                    android:padding="16dp"
+                    android:scaleType="centerCrop"
+                    android:tint="@color/secondaryTextColor"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/text_votePlaceholder_score"
                     app:layout_constraintTop_toBottomOf="@+id/text_votePlaceholder_content"
-                    app:srcCompat="@drawable/ic_arrow_upward" />
+                    app:srcCompat="@drawable/ic_arrow_up" />
 
                 <ImageButton
                     android:id="@+id/button_votePlaceholder_comment"
@@ -69,6 +105,9 @@
                     android:layout_marginTop="8dp"
                     android:background="#FFFFFF"
                     android:contentDescription="@string/description_vote_comment"
+                    android:padding="16dp"
+                    android:scaleType="centerCrop"
+                    android:tint="@color/secondaryTextColor"
                     app:layout_constraintEnd_toStartOf="@+id/text_votePlaceholder_comment"
                     app:layout_constraintTop_toBottomOf="@+id/text_votePlaceholder_content"
                     app:srcCompat="@drawable/ic_comment" />
