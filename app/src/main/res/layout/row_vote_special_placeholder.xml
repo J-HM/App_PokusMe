@@ -22,50 +22,38 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <View
                 android:id="@+id/text_voteSpecial_title"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="26dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:background="@color/placeholderBackgroundColor"
                 app:layout_constraintEnd_toStartOf="@+id/button_voteSpecial_favorite"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="제목 부분" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <View
                 android:id="@+id/text_voteSpecial_content"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textColor="@color/secondaryTextColor"
+                android:background="@color/placeholderBackgroundColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_voteSpecial_title"
-                tools:text="For platforms with offline support, you can set the source option to control how a get call uses the offline cache.  By default, a get call will attempt to fetch the latest document snapshot from your database. On platforms with offline support, the client library will use the offline cache if the network is unavailable or if the request times out.  You can specify the source option in a get() call to change the default behavior. You can fetch from only the database and ignore the offline cache, or you can fetch from only the offline cache. For example:" />
+                app:layout_constraintTop_toBottomOf="@+id/text_voteSpecial_title" />
 
-            <TextView
+            <View
                 android:id="@+id/text_voteSpecial_score"
                 android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:maxLines="1"
-                android:textColor="@color/secondaryTextColor"
-                android:textSize="16sp"
+                android:layout_height="18dp"
+                android:background="@color/placeholderBackgroundColor"
                 app:layout_constraintBottom_toBottomOf="@+id/button_voteSpecial_bad"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/button_voteSpecial_bad"
-                tools:text="54" />
+                app:layout_constraintTop_toTopOf="@+id/button_voteSpecial_bad" />
 
             <ImageButton
                 android:id="@+id/button_voteSpecial_good"
