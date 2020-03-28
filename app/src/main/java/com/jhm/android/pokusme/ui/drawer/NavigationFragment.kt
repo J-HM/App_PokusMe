@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.OvalShape
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,7 +63,10 @@ class NavigationFragment : BottomSheetDialogFragment() {
                 }
                 R.id.menu_navigation_profile -> {
                     this.dismiss()
-                    startActivity(Intent(activity, ProfileActivity::class.java))
+                    val intent = Intent(activity, ProfileActivity::class.java)
+                    intent.putExtra("displayName", currentUser.displayName)
+                    intent.putExtra("email", currentUser.email)
+                    startActivity(intent)
                     true
                 }
                 R.id.menu_navigation_setting -> {

@@ -53,4 +53,5 @@
     <string name="description_vote_more">More</string>
     <string name="text_dispute">Either like it or hate it</string>
     <string name="text_popular">Trending</string>
+    <string name="description_profile_default">Default Picture</string>
 </resources>

@@ -53,4 +53,5 @@
     <string name="description_vote_more">더보기</string>
     <string name="text_popular">이번주의 베스트 아이템</string>
     <string name="text_dispute">호불호 갈리는 아이템</string>
+    <string name="description_profile_default">프로필 사진</string>
 </resources>

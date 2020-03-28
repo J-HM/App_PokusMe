@@ -57,11 +57,7 @@ class VoteAdapter(private val votes: ArrayList<VoteData>) : RecyclerView.Adapter
             .into(holder.view.image_vote_default)
 
         holder.view.setOnClickListener {
-            Log.d("jhmlog", "title ${holder.view.text_vote_title.height}")
-            Log.d("jhmlog", "name ${holder.view.text_vote_displayName.height}")
-            Log.d("jhmlog", "default ${holder.view.image_vote_default.height}")
-            Log.d("jhmlog", "content ${holder.view.text_vote_content.height}")
-            Log.d("jhmlog", "default ${holder.view.text_vote_uploadTime.height}")
+        
         }
 
         holder.view.button_vote_good.setOnClickListener {

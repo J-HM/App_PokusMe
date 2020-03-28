@@ -14,8 +14,4 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="SettingTheme" parent="Base.Theme.AppCompat" >
-        <item name="android:listDivider">@color/primaryColor</item>
-    </style>
-
 </resources>

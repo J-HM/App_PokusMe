@@ -6,15 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.jhm.android.pokusme.R
 import com.jhm.android.pokusme.data.VoteData
-import com.jhm.android.pokusme.global.TimeAgo
-import kotlinx.android.synthetic.main.row_vote.view.*
-import kotlinx.android.synthetic.main.row_vote_placeholder.view.*
 import kotlinx.android.synthetic.main.row_vote_special.view.*
 
 
@@ -53,32 +48,28 @@ class VoteSpecialAdapter(private val votes: ArrayList<VoteData>) : RecyclerView.
             .into(holder.view.image_voteSpecial_default)
 
         holder.view.setOnClickListener {
-            Log.d("jhmlog", "title ${holder.view.text_vote_title.height}")
-            Log.d("jhmlog", "name ${holder.view.text_vote_displayName.height}")
-            Log.d("jhmlog", "default ${holder.view.image_vote_default.height}")
-            Log.d("jhmlog", "content ${holder.view.text_vote_content.height}")
-            Log.d("jhmlog", "default ${holder.view.text_vote_uploadTime.height}")
+
         }
 
         holder.view.button_voteSpecial_good.setOnClickListener {
-            holder.view.text_vote_score.text = (good.toInt() + 1 - bad.toInt()).toString()
+            holder.view.text_voteSpecial_score.text = (good.toInt() + 1 - bad.toInt()).toString()
             transactScore(voteId, "good",
                 onSuccess = { good, bad ->
-                    holder.view.text_vote_score.text = (good.toInt() - bad.toInt()).toString()
+                    holder.view.text_voteSpecial_score.text = (good.toInt() - bad.toInt()).toString()
                 },
                 onFailure = {
-                    holder.view.text_vote_score.text = (good.toInt() - bad.toInt()).toString()
+                    holder.view.text_voteSpecial_score.text = (good.toInt() - bad.toInt()).toString()
                 }
             )
         }
         holder.view.button_voteSpecial_bad.setOnClickListener {
-            holder.view.text_vote_score.text = (good.toInt() - 1 - bad.toInt()).toString()
+            holder.view.text_voteSpecial_score.text = (good.toInt() - 1 - bad.toInt()).toString()
             transactScore(voteId, "bad",
                 onSuccess = { good, bad ->
-                    holder.view.text_vote_score.text = (good.toInt() - bad.toInt()).toString()
+                    holder.view.text_voteSpecial_score.text = (good.toInt() - bad.toInt()).toString()
                 },
                 onFailure = {
-                    holder.view.text_vote_score.text = (good.toInt() - bad.toInt()).toString()
+                    holder.view.text_voteSpecial_score.text = (good.toInt() - bad.toInt()).toString()
                 }
             )
         }

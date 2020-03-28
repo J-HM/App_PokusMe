@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
+        android:id="@+id/appbar_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF">
@@ -34,8 +34,7 @@
             <com.google.android.material.navigation.NavigationView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:theme="@style/TabTheme"
-                app:insetForeground="@color/secondaryColor"
+                app:itemIconTint="@color/defaultTintColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

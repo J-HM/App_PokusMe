@@ -72,7 +72,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/text_popular"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/recycler_vote_popular"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -82,9 +82,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="48dp"
                 android:text="@string/text_dispute"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_vote_popular" />
 
