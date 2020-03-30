@@ -44,7 +44,12 @@ class NavigationFragment : BottomSheetDialogFragment() {
         setNavigationItemSelectedListener(view.findViewById<NavigationView>(R.id.navigation_navigation))
         
         view.findViewById<ImageButton>(R.id.button_navigation_profileEdit).setOnClickListener {
-            startActivity(Intent(activity, ProfileEditActivity::class.java))
+            this.dismiss()
+            val intent = Intent(activity, ProfileEditActivity::class.java)
+            intent.putExtra("displayName", currentUser.displayName)
+            intent.putExtra("email", currentUser.email)
+            intent.putExtra("uid", currentUser.uid)
+            startActivity(intent)
         }
         
         view.findViewById<ImageView>(R.id.image_navigation_default).background = ShapeDrawable(OvalShape())
@@ -66,6 +71,7 @@ class NavigationFragment : BottomSheetDialogFragment() {
                     val intent = Intent(activity, ProfileActivity::class.java)
                     intent.putExtra("displayName", currentUser.displayName)
                     intent.putExtra("email", currentUser.email)
+                    intent.putExtra("uid", currentUser.uid)
                     startActivity(intent)
                     true
                 }
